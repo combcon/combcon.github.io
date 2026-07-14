@@ -1,1 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Plenary Abstracts • Combinatorics at the Confluence</title>
+  <meta name="description" content="Plenary talk abstracts for Combinatorics at the Confluence, July 20–22, 2026 at Carnegie Mellon University." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --cream: #F3E5CF;
+      --teal: #2E828B;
+      --deep-teal: #0E4B58;
+      --navy: #123A45;
+      --gold: #F2A83B;
+      --orange: #E57C2D;
+      --cmu-red: #C41230;
+      --white: #ffffff;
+      --ink: #102326;
+      --maxw: 1100px;
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      color:var(--ink);
+      background:var(--cream);
+      font-family:"Montserrat", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height:1.5;
+    }
+    a{ color:var(--cmu-red); text-decoration:none; }
+    a:hover,a:focus{ text-decoration:underline; }
+    .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 20px; }
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:999;
+      background:linear-gradient(180deg, var(--navy), var(--deep-teal));
+      color:var(--white);
+      box-shadow:0 2px 10px rgba(0,0,0,.15);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:12px 0;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:800;
+      letter-spacing:.5px;
+    }
+    .brand .mark{
+      width:28px;
+      height:28px;
+      border-radius:6px;
+      background:var(--cmu-red);
+      box-shadow:inset 0 0 0 3px rgba(255,255,255,.25);
+    }
+    .nav a{ color:var(--cream); font-weight:600; }
+    .menu{ display:flex; gap:18px; flex-wrap:wrap; }
+
+    .page-hero{
+      padding:clamp(34px, 6vw, 68px) 0;
+      color:var(--white);
+      background:linear-gradient(180deg, var(--teal), var(--navy));
+      border-bottom:6px solid var(--orange);
+    }
+    .page-hero h1{
+      margin:0 0 10px;
+      font-size:clamp(34px, 4.5vw, 56px);
+      line-height:1.05;
+      font-weight:800;
+    }
+    .page-hero p{
+      margin:0;
+      color:#e8faf8;
+      font-family:"Source Serif Pro", ui-serif, Georgia, "Times New Roman", serif;
+      font-size:20px;
+    }
+
+    main{ background:#f9f1df; }
+    section{ padding:50px 0 64px; }
+    .abstracts-wrap{ max-width:900px; }
+    .sub{
+      color:#3a646c;
+      font-family:"Source Serif Pro", ui-serif, Georgia, "Times New Roman", serif;
+      font-size:18px;
+    }
+    .card{
+      background:var(--white);
+      border:2px solid rgba(0,0,0,.06);
+      border-radius:16px;
+      padding:20px;
+      box-shadow:0 8px 18px rgba(0,0,0,.08);
+    }
+    .back-link{ display:inline-block; margin-bottom:18px; font-weight:700; }
+
+    .abstract-toc{ margin:24px 0; }
+    .abstract-toc h2{
+      margin:0 0 12px;
+      color:var(--deep-teal);
+      font-size:22px;
+    }
+    .abstract-toc ol{
+      columns:2;
+      column-gap:36px;
+      margin:0;
+      padding-left:24px;
+    }
+    .abstract-toc li{
+      break-inside:avoid;
+      margin-bottom:9px;
+    }
+
+    .abstract-list{
+      display:grid;
+      gap:20px;
+    }
+    .abstract-card{
+      scroll-margin-top:90px;
+    }
+    .abstract-card:target{
+      border-color:var(--orange);
+      box-shadow:0 0 0 3px rgba(229,124,45,.18), 0 8px 18px rgba(0,0,0,.08);
+    }
+    .abstract-card h2{
+      margin:4px 0 5px;
+      color:var(--deep-teal);
+      font-size:clamp(22px, 2.5vw, 30px);
+      line-height:1.2;
+    }
+    .abstract-card h3{
+      margin:18px 0 4px;
+      color:var(--deep-teal);
+      font-size:17px;
+    }
+    .abstract-meta{
+      margin:0;
+      color:#537a80;
+      font-size:13px;
+      font-weight:700;
+    }
+    .abstract-speaker{
+      margin:0;
+      color:var(--deep-teal);
+      font-size:18px;
+    }
+    .abstract-text{
+      font-family:"Source Serif Pro", ui-serif, Georgia, "Times New Roman", serif;
+      font-size:18px;
+      line-height:1.65;
+    }
+    .abstract-text p:last-child{ margin-bottom:0; }
+    .math{
+      white-space:nowrap;
+      font-family:"Source Serif Pro", ui-serif, Georgia, "Times New Roman", serif;
+      font-style:italic;
+    }
+    .bottom-link{ margin-top:28px; font-weight:700; }
+
+    @media (max-width:820px){
+      .nav{ align-items:flex-start; gap:12px; }
+      .brand{ flex-shrink:0; }
+      .menu{ gap:12px; }
+    }
+    @media (max-width:700px){
+      .abstract-toc ol{ columns:1; }
+    }
+    @media (max-width:620px){
+      .nav{ display:block; }
+      .menu{ margin-top:10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="wrap nav">
+      <div class="brand" aria-label="Combinatorics at the Confluence">
+        <span class="mark" aria-hidden="true"></span>
+        <span>Combinatorics at the Confluence</span>
+      </div>
+      <nav class="menu" aria-label="Primary">
+        <a href="index.html#about">About</a>
+        <a href="index.html#schedule">Program</a>
+        <a href="index.html#rooms">Rooms</a>
+        <a href="index.html#venue">Venue &amp; Travel</a>
+        <a href="index.html#registration">Registration</a>
+        <a href="index.html#organizers">Organizers</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-hero">
+    <div class="wrap">
+      <h1>Plenary Abstracts</h1>
+      <p>Combinatorics at the Confluence · July 20–22, 2026</p>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <section>
+      <div class="wrap abstracts-wrap">
+        <a class="back-link" href="index.html#schedule">← Back to the program</a>
+        <p class="sub">
+          Abstracts for the seven plenary talks are collected below in chronological order.
+          The Tuesday morning AlphaEvolve tutorial is not included.
+        </p>
+
+        <nav class="card abstract-toc" aria-labelledby="abstract-toc-heading">
+          <h2 id="abstract-toc-heading">Talks</h2>
+          <ol>
+            <li><a href="#pavel-galashin">Pavel Galashin — Amplituhedra and origami</a></li>
+            <li><a href="#mihyun-kang">Mihyun Kang — Matchings in sparse random graphs</a></li>
+            <li><a href="#adam-wagner">Adam Wagner — Exploring constructions in mathematics using AI tools</a></li>
+            <li><a href="#lauren-williams">Lauren Williams — Combinatorics of Macdonald polynomials and their generalizations</a></li>
+            <li><a href="#rob-morris">Rob Morris — Recent results in Ramsey theory</a></li>
+            <li><a href="#hailun-zheng">Hailun Zheng — Rigidity, stress spaces, and lower bound problems on simplicial spheres</a></li>
+            <li><a href="#petter-branden">Petter Brändén — Totally nonnegative matrices and zeros of poset polynomials</a></li>
+          </ol>
+        </nav>
+
+        <div class="abstract-list">
+          <article class="card abstract-card" id="pavel-galashin" aria-labelledby="pavel-galashin-title">
+            <p class="abstract-meta">Monday, July 20 · 9:30 a.m. · Rashid Auditorium, GHC 4401</p>
+            <h2 id="pavel-galashin-title">Amplituhedra and origami</h2>
+            <p class="abstract-speaker"><strong>Pavel Galashin</strong></p>
+            <h3>Abstract</h3>
+            <div class="abstract-text">
+              <p>I will outline the combinatorial machinery behind a recent proof of the BCFW triangulation conjecture for the amplituhedron. I will mostly focus on the combinatorics of the dimer model on bipartite graphs embedded in a disk, including Kenyon–Smirnov primitives, origami crease patterns, and two punctured versions of planar bipartite graphs related by a surprising combinatorial duality.</p>
+            </div>
+          </article>
+
+          <article class="card abstract-card" id="mihyun-kang" aria-labelledby="mihyun-kang-title">
+            <p class="abstract-meta">Monday, July 20 · 2:00 p.m. · Rashid Auditorium, GHC 4401</p>
+            <h2 id="mihyun-kang-title">Matchings in sparse random graphs</h2>
+            <p class="abstract-speaker"><strong>Mihyun Kang</strong></p>
+            <h3>Abstract</h3>
+            <div class="abstract-text">
+              <p>We begin with the classical result of Karp and Sipser on maximum matchings in sparse Erdős–Rényi random graphs. Building on this foundation, we present recent progress: a central limit theorem for the matching number, a local limit theorem for the Karp–Sipser core, and the universal behaviour of the rescaled matching number of sparse random graphs. We conclude with several open problems and directions for future research.</p>
+            </div>
+          </article>
+
+          <article class="card abstract-card" id="adam-wagner" aria-labelledby="adam-wagner-title">
+            <p class="abstract-meta">Monday, July 20 · 5:00 p.m. · Rashid Auditorium, GHC 4401</p>
+            <h2 id="adam-wagner-title">Exploring constructions in mathematics using AI tools</h2>
+            <p class="abstract-speaker"><strong>Adam Wagner</strong></p>
+            <h3>Abstract</h3>
+            <div class="abstract-text">
+              <p>In mathematics, the focus is often on finding interesting constructions for various mathematical problems. I will discuss how some tools can reduce the effort required to find the right questions, explore variants of a problem, test our ideas and find good constructions for various problems. We will look at different ways we can think about how these tools work, look at many examples, and figure out which of these setups is right for the problems you care about.</p>
+            </div>
+          </article>
+
+          <article class="card abstract-card" id="lauren-williams" aria-labelledby="lauren-williams-title">
+            <p class="abstract-meta">Tuesday, July 21 · 2:00 p.m. · Rashid Auditorium, GHC 4401</p>
+            <h2 id="lauren-williams-title">Combinatorics of Macdonald polynomials and their generalizations</h2>
+            <p class="abstract-speaker"><strong>Lauren Williams</strong></p>
+            <h3>Abstract</h3>
+            <div class="abstract-text">
+              <p>Macdonald polynomials are a famous family of symmetric polynomials which are connected to the Hilbert scheme, knot invariants, and the Hecke algebra. There are several combinatorial formulas for Macdonald polynomials, including the 2004 tableaux formula of Haglund–Haiman–Loehr and the 2018 multiline queue formula of Corteel–Mandelshtam–Williams. In 1996, Knop and Sahi introduced a remarkable family of inhomogeneous symmetric polynomials called interpolation Macdonald polynomials, which are defined via vanishing conditions, and which generalize Macdonald polynomials, in the sense that their top homogeneous parts are exactly the Macdonald polynomials. In recent work with Houcine Ben Dali, we give the first combinatorial formula for interpolation Macdonald polynomials; our formula is in terms of signed multiline queues, and generalizes the multiline queue formula for Macdonald polynomials. We also give a tableaux formula. If time permits, I will discuss how these polynomials are connected to interacting particle systems.</p>
+            </div>
+          </article>
+
+          <article class="card abstract-card" id="rob-morris" aria-labelledby="rob-morris-title">
+            <p class="abstract-meta">Tuesday, July 21 · 5:00 p.m. · Rashid Auditorium, GHC 4401</p>
+            <h2 id="rob-morris-title">Recent results in Ramsey theory</h2>
+            <p class="abstract-speaker"><strong>Rob Morris</strong></p>
+            <h3>Abstract</h3>
+            <div class="abstract-text">
+              <p>Over the past few years there has been a series of remarkable breakthroughs in Ramsey theory. In this talk we will discuss several of these, including an exponential improvement for the diagonal Ramsey numbers, stunning new constructions for off-diagonal Ramsey numbers, and an exponential upper bound for induced Ramsey numbers.</p>
+            </div>
+          </article>
+
+          <article class="card abstract-card" id="hailun-zheng" aria-labelledby="hailun-zheng-title">
+            <p class="abstract-meta">Wednesday, July 22 · 9:30 a.m. · Rashid Auditorium, GHC 4401</p>
+            <h2 id="hailun-zheng-title">Rigidity, stress spaces, and lower bound problems on simplicial spheres</h2>
+            <p class="abstract-speaker"><strong>Hailun Zheng</strong></p>
+            <h3>Abstract</h3>
+            <div class="abstract-text">
+              <p>The Generalized Lower Bound Theorem conjectured by McMullen and Walkup in the early 1970s and proved through work of Stanley, Kalai, Murai–Nevo, and Adiprasito, asserts that the <span class="math">g<sub>i</sub></span>-numbers of any simplicial <span class="math">(d − 1)</span>-sphere are nonnegative, and that for each <span class="math">i</span>, the minimum <span class="math">g<sub>i</sub> = 0</span> is achieved precisely by <span class="math">(i − 1)</span>-stacked spheres. Kalai’s proof of the Lower Bound Theorem (the <span class="math">i = 2</span> case) via rigidity theory established a paradigm central to the field. A natural refinement asks for sharp lower bounds on <span class="math">g<sub>i</sub></span> within the class <span class="math">S(j,d − 1)</span> of simplicial <span class="math">(d − 1)</span>-spheres whose missing faces all have dimension at most <span class="math">j</span>; for most pairs <span class="math">(i,j)</span> these bounds remain open, including the Charney–Davis conjecture for <span class="math">S(1,d − 1)</span> — the class of flag <span class="math">(d − 1)</span>-spheres.</p>
+              <p>In this talk, I will discuss recent progress on lower bound problems for spheres in <span class="math">S(j,d − 1)</span>. The proofs blend Stanley–Reisner ring theory, affine stress spaces, and rigidity theory. Results include new bounds on the <span class="math">g</span>-numbers of spheres in certain classes <span class="math">S(j,d − 1)</span> — including <span class="math">S(1,d − 1)</span> and <span class="math">S(2,4)</span> — as well as a classification of <span class="math">S(3,5)</span>-spheres with <span class="math">g<sub>3</sub> = 1</span>.</p>
+              <p>This is joint work with Isabella Novik.</p>
+            </div>
+          </article>
+
+          <article class="card abstract-card" id="petter-branden" aria-labelledby="petter-branden-title">
+            <p class="abstract-meta">Wednesday, July 22 · 11:00 a.m. · Rashid Auditorium, GHC 4401</p>
+            <h2 id="petter-branden-title">Totally nonnegative matrices and zeros of poset polynomials</h2>
+            <p class="abstract-speaker"><strong>Petter Brändén</strong></p>
+            <h3>Abstract</h3>
+            <div class="abstract-text">
+              <p>We associate several families of univariate polynomials to any unitriangular matrix (lower triangular matrix with all diagonal entries equal to one). When the matrix is totally nonnegative, then the polynomials are proven to be real-rooted. When the matrix comes from a partially ordered set (poset), then these polynomials are known as chain polynomials and Chow polynomials. In this setting our results prove new cases of conjectures regarding real-rootedness of such polynomials. This is based on joint work with Leonardo Saud Maia Leite and Lorenzo Vecchi.</p>
+            </div>
+          </article>
+        </div>
+
+        <p class="bottom-link"><a href="index.html#schedule">← Back to the program</a></p>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
 

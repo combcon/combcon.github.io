@@ -21,8 +21,8 @@
       --orange: #E57C2D;
 
       /* CMU palette */
-      --cmu-red: #C41230;    
-      --cmu-deep: #7A0F20; 
+      --cmu-red: #C41230;
+      --cmu-deep: #7A0F20;
       --cmu-gray: #6D6E71;
 
       /* neutrals */
@@ -31,6 +31,12 @@
 
       /* text sizes */
       --maxw: 1100px;
+    }
+
+    *{ box-sizing: border-box; }
+
+    html{
+      scroll-behavior: smooth;
     }
 
     html, body{
@@ -127,6 +133,7 @@
       font-size: clamp(26px, 3vw, 36px);
       margin: 0 0 14px 0; font-weight:800; letter-spacing:.3px; color: var(--deep-teal);
     }
+    h3{ color: var(--deep-teal); }
     .sub{ color: #3a646c; font-family: "Source Serif Pro", ui-serif, Georgia, "Times New Roman", serif; font-size: 18px; }
 
     .grid{
@@ -142,10 +149,112 @@
     .chip{ display:inline-block; padding:6px 10px; border-radius:999px; background: #eef7f6; color: var(--deep-teal); font-weight:700; font-size: 13px; }
 
     .two-col{ columns: 2; column-gap: 24px; }
+
+    /* Program and travel tables */
+    .table-scroll{
+      overflow-x:auto;
+      margin: 18px 0;
+      border-radius: 14px;
+      box-shadow: 0 8px 18px rgba(0,0,0,.08);
+    }
+    .schedule-table{
+      width:100%;
+      min-width: 860px;
+      border-collapse: collapse;
+      background: var(--white);
+      font-size: 14px;
+    }
+    .schedule-table.compact{ min-width: 650px; }
+    .schedule-table th,
+    .schedule-table td{
+      border: 1px solid rgba(14,75,88,.22);
+      padding: 10px 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+    .schedule-table thead th{
+      background: var(--deep-teal);
+      color: var(--white);
+      font-weight:700;
+    }
+    .schedule-table .time{
+      width: 112px;
+      white-space: nowrap;
+      font-weight:700;
+    }
+    .schedule-plenary{ background: #e7f3f1; }
+    .schedule-session{ background: #fff1d7; }
+    .schedule-break{ background: #f5f0e8; }
+    .schedule-reception{ background: #e7eef7; }
+    .schedule-muted{ color: #607b80; background: #fbfaf7; }
+    .talk-title{
+      display:block;
+      margin-top: 3px;
+      font-family: "Source Serif Pro", ui-serif, Georgia, "Times New Roman", serif;
+      font-size: 15px;
+      font-style: italic;
+      line-height: 1.3;
+    }
+    .room-note{
+      display:block;
+      margin-top: 4px;
+      color: #416970;
+      font-size: 12px;
+      font-weight:600;
+    }
+    .abstract-link{
+      display:inline-block;
+      margin-top:7px;
+      padding:5px 9px;
+      border:1px solid rgba(14,75,88,.22);
+      border-radius:999px;
+      background:var(--white);
+      font-size:12px;
+      font-weight:700;
+      font-style:normal;
+    }
+    .section-heading{ margin-top: 34px; }
+    details.session-card{
+      padding:0;
+      overflow:hidden;
+    }
+    details.session-card summary{
+      cursor:pointer;
+      padding:18px;
+      color: var(--deep-teal);
+      font-weight:800;
+      list-style-position: inside;
+    }
+    details.session-card[open] summary{
+      border-bottom: 1px solid rgba(14,75,88,.16);
+    }
+    .details-body{ padding: 0 18px 18px; }
+    .template-note{
+      color: #537a80;
+      font-family: "Source Serif Pro", ui-serif, Georgia, "Times New Roman", serif;
+    }
+    .travel-note{
+      border-left: 5px solid var(--orange);
+      background: #fff7e9;
+      padding: 14px 16px;
+      border-radius: 0 12px 12px 0;
+    }
+    address{ font-style: normal; }
+
     @media (max-width: 820px){
       .hero-grid{ grid-template-columns: 1fr; }
       .two-col{ columns: 1; }
       .menu{ gap: 12px; }
+      .nav{ align-items:flex-start; gap:12px; }
+      .brand{ flex-shrink:0; }
+      .schedule-table{ font-size:13px; }
+      .schedule-table th,
+      .schedule-table td{ padding:8px; }
+    }
+
+    @media (max-width: 620px){
+      .nav{ display:block; }
+      .menu{ margin-top:10px; }
     }
 
     /* Footer */
@@ -175,9 +284,9 @@
       </div>
       <nav class="menu" aria-label="Primary">
         <a href="#about">About</a>
-        <a href="#speakers">Confirmed Speakers</a>
         <a href="#schedule">Program</a>
-        <a href="#venue">Venue & Travel</a>
+        <a href="#rooms">Rooms</a>
+        <a href="#venue">Venue &amp; Travel</a>
         <a href="#registration">Registration</a>
         <a href="#related">Related Events</a>
         <a href="#organizers">Organizers</a>
@@ -205,234 +314,256 @@
     <div class="wrap">
       <h2>About</h2>
       <p class="sub">
-        <strong>Combinatorics at the Confluence</strong> will bring together researchers from across the diverse landscape of combinatorics, including algebraic, enumerative, 	
-        extremal, geometric, probabilistic, and topological combinatorics. The meeting will feature invited talks, parallel sessions, and a poster session. 
+        <strong>Combinatorics at the Confluence</strong> will bring together researchers from across the diverse landscape of combinatorics, including algebraic, enumerative,
+        extremal, geometric, probabilistic, and topological combinatorics. The meeting will feature plenary talks, three parallel special sessions, an ICARM tutorial, and a poster reception.
       </p>
-		<p class="sub">There will be featured talks and events by the <a href="https://icarm.io/">Institute for Computer-Aided Reasoning in Mathematics</a>.</p>
-		<p class="sub">We gratefully acknowledge support from the National Science Foundation.</p>
+      <p class="sub">There will be featured talks and events by the <a href="https://icarm.io/">Institute for Computer-Aided Reasoning in Mathematics</a>.</p>
+      <p class="sub">We gratefully acknowledge support from the National Science Foundation.</p>
     </div>
   </section>
-
-  <section id="speakers">
-    <div class="wrap">
-      <h2>Confirmed Speakers</h2>
-      <div class="grid">
-        <article class="card">
-          <h3>Anton Bernshteyn</h3>
-          <p class="muted">UCLA</p>
-          <span class="chip"><a href="https://bahtoh-math.github.io/">Webpage</a></span>
-        </article>
-        <article class="card">
-          <h3>Petter Brändén</h3>
-          <p class="muted">KTH Stockholm</p>
-          <span class="chip"><a href="https://www.kth.se/profile/pbranden">Webpage</a></span>
-        </article>
-		<article class="card">
-          <h3>Sarah Brauner</h3>
-          <p class="muted">Brown / UPenn</p>
-          <span class="chip"><a href="https://www.sarahbrauner.com/">Webpage</a></span>
-        </article>
-		<article class="card">
-          <h3>Fan Chung</h3>
-          <p class="muted">UCSD</p>
-          <span class="chip"><a href="https://fanchung.ucsd.edu/">Webpage</a></span>
-        </article>
-        <article class="card">
-          <h3>Michelle Delcourt</h3>
-          <p class="muted">Toronto Metropolitan University</p>
-          <span class="chip"><a href="https://www.math.uwaterloo.ca/~mdelcour/">Webpage</a></span>
-        </article>
-        <article class="card">
-          <h3>Pavel Galashin</h3>
-          <p class="muted">UCLA / Cornell University</p>
-          <span class="chip"><a href="https://www.math.ucla.edu/~galashin/">Webpage</a></span>
-        </article>
-		<article class="card">
-          <h3>Jane Gao</h3>
-          <p class="muted">University of Waterloo</p>
-          <span class="chip"><a href="https://www.math.uwaterloo.ca/~p3gao/">Webpage</a></span>
-        </article>
-		<article class="card">
-          <h3>Simon Griffiths</h3>
-          <p class="muted">PUC-Rio</p>
-          <span class="chip"><a href="http://www.mat.puc-rio.br/en/professor/simon-richard-griffiths">Webpage</a></span>
-        </article>
-		<article class="card">
-          <h3>Patricia Hersh</h3>
-          <p class="muted">University of Oregon</p>
-          <span class="chip"><a href="https://pages.uoregon.edu/plhersh/">Webpage</a></span>
-        </article>
-        <article class="card">
-          <h3>Daoji Huang</h3>
-          <p class="muted">UMass Amherst</p>
-          <span class="chip"><a href="https://www.daojihuang.me/">Webpage</a></span>
-        </article>
-		<article class="card">
-          <h3>Felix Joos</h3>
-          <p class="muted">Heidelberg University</p>
-          <span class="chip"><a href="https://web.ifi.uni-heidelberg.de/tcs/joos">Webpage</a></span>
-        </article>
-        <article class="card">
-          <h3>Jeff Kahn</h3>
-          <p class="muted">Rutgers</p>
-          <span class="chip"><a href="https://sites.math.rutgers.edu/~jkahn/">Webpage</a></span>
-        </article>
-        <article class="card">
-          <h3>Mihyun Kang</h3>
-          <p class="muted">TU Graz</p>
-          <span class="chip"><a href="https://www.math.tugraz.at/~kang/">Webpage</a></span>
-        </article>
-		<article class="card">
-          <h3>Tom Kelly</h3>
-          <p class="muted">Georgia Tech</p>
-          <span class="chip"><a href="https://tomkelly.math.gatech.edu/">Webpage</a></span>
-        </article>
-        <article class="card">
-          <h3>Gaku Liu</h3>
-          <p class="muted">University of Washington</p>
-          <span class="chip"><a href="https://sites.google.com/view/gakuliu">Webpage</a></span>
-		</article>
-        <article class="card">
-          <h3>Sam Mattheus</h3>
-          <p class="muted">Vrije Universiteit Brussel</p>
-          <span class="chip"><a href="https://sammattheus.wordpress.com/research/">Webpage</a></span>
-		</article>
-        <article class="card">
-          <h3>Adva Mond</h3>
-          <p class="muted">King's College London</p>
-          <span class="chip"><a href="https://sites.google.com/view/adva-mond">Webpage</a></span>
-		</article>
-        <article class="card">
-          <h3>Richard Montgomery</h3>
-          <p class="muted">University of Warwick</p>
-          <span class="chip"><a href="https://rhmontgomery.warwick.ac.uk/">Webpage</a></span>
-        </article>
-        <article class="card">
-          <h3>Rob Morris</h3>
-          <p class="muted">IMPA</p>
-          <span class="chip"><a href="https://robiscounting.github.io/">Webpage</a></span>
-        </article>
-		<article class="card">
-          <h3>Florian Pfender</h3>
-          <p class="muted">University of Colorado Denver</p>
-          <span class="chip"><a href="https://sites.google.com/view/florianpfendermath">Webpage</a></span>
-        </article>
-		<article class="card">
-          <h3>Cosmin Pohoata</h3>
-          <p class="muted">Emory University</p>
-          <span class="chip"><a href="https://pohoatza.wordpress.com/about/">Webpage</a></span>
-        </article>
-        <article class="card">
-          <h3>Luke Postle</h3>
-          <p class="muted">University of Waterloo</p>
-          <span class="chip"><a href="https://sites.google.com/view/lukepostle">Webpage</a></span>
-		</article>
-		<article class="card">
-          <h3>Brendon Rhoades</h3>
-          <p class="muted">UCSD</p>
-          <span class="chip"><a href="https://mathweb.ucsd.edu/~bprhoades/">Webpage</a></span>
-		</article>
-        <article class="card">
-          <h3>Julian Sahasrabudhe</h3>
-          <p class="muted">University of Cambridge</p>
-          <span class="chip"><a href="https://www.dpmms.cam.ac.uk/~jdrs2/">Webpage</a></span>
-        </article>
-        <article class="card">
-          <h3>Wojciech Samotij</h3>
-          <p class="muted">Tel Aviv University</p>
-          <span class="chip"><a href="https://www.math.tau.ac.il/~samotij/">Webpage</a></span>
-        </article>
-        <article class="card">
-          <h3>Alex Scott</h3>
-          <p class="muted">University of Oxford</p>
-          <span class="chip"><a href="https://people.maths.ox.ac.uk/scott/">Webpage</a></span>
-        </article>
-        <article class="card">
-          <h3>Hunter Spink</h3>
-          <p class="muted">University of Toronto</p>
-          <span class="chip"><a href="https://www.math.utoronto.ca/hspink/">Webpage</a></span>
-        </article>
-		<article class="card">
-          <h3>Lorenzo Vecchi</h3>
-          <p class="muted">KTH Stockholm</p>
-          <span class="chip"><a href="https://sites.google.com/view/lorenzovecchi/">Webpage</a></span>
-        </article>
-        <article class="card">
-          <h3>Jacques Verstraete</h3>
-          <p class="muted">UC San Diego</p>
-          <span class="chip"><a href="https://annatar0.wixsite.com/website-4">Webpage</a></span>
-        </article>
-        <article class="card">
-          <h3>Adam Wagner</h3>
-          <p class="muted">Google Deepmind</p>
-          <p>ICARM talk</p>
-          <span class="chip"><a href="https://zawagner22.github.io/">Webpage</a></span>
-        </article>
-		<article class="card">
-          <h3>Lutz Warnke</h3>
-          <p class="muted">UCSD</p>
-          <span class="chip"><a href="https://mathweb.ucsd.edu/~lwarnke/">Webpage</a></span>
-        </article>
-        <article class="card">
-          <h3>Lauren Williams</h3>
-          <p class="muted">Harvard University</p>
-          <span class="chip"><a href="https://people.math.harvard.edu/~williams/">Webpage</a></span>
-        </article>
-        <article class="card">
-          <h3>Liana Yepremyan</h3>
-          <p class="muted">Emory University</p>
-          <span class="chip"><a href="https://www.lianayepremyan.com/">Webpage</a></span>
-        </article>
-		<article class="card">
-          <h3>Martha Yip</h3>
-          <p class="muted">University of Kentucky</p>
-          <span class="chip"><a href="https://www.ms.uky.edu/~myip/">Webpage</a></span>
-        </article>
-        <article class="card">
-          <h3>Josephine Yu</h3>
-          <p class="muted">Georgia Tech</p>
-          <span class="chip"><a href="https://sites.gatech.edu/josephineyu/">Webpage</a></span>
-        </article>
-		<article class="card">
-          <h3>Shira Zerbib</h3>
-          <p class="muted">Iowa State University</p>
-          <span class="chip"><a href="https://faculty.sites.iastate.edu/zerbib/">Webpage</a></span>
-        </article>
-        <article class="card">
-          <h3>Hailun Zheng</h3>
-          <p class="muted">University of Hawai'i</p>
-          <span class="chip"><a href="https://sites.google.com/view/hailunz/">Webpage</a></span>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  
 
   <section id="schedule">
     <div class="wrap">
       <h2>Program</h2>
-      <p class="sub">
-        A detailed schedule will be posted closer to the event. 
+      <p>
+        <a href="plenary-abstracts.html">View all plenary abstracts</a>.
+        Individual abstracts are also linked directly from the schedule below.
       </p>
+
+      <div class="table-scroll">
+        <table class="schedule-table">
+          <caption class="sr-only">Program</caption>
+          <thead>
+            <tr>
+              <th scope="col" class="time">Time</th>
+              <th scope="col">Monday, July 20</th>
+              <th scope="col">Tuesday, July 21</th>
+              <th scope="col">Wednesday, July 22</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="time">9:00–9:30</th>
+              <td class="schedule-break">Registration</td>
+              <td class="schedule-muted">—</td>
+              <td class="schedule-muted">—</td>
+            </tr>
+            <tr>
+              <th scope="row" class="time">9:30–10:30</th>
+              <td class="schedule-plenary">
+                <strong>Pavel Galashin</strong>
+                <span class="talk-title">Amplituhedra and origami</span>
+                <span class="room-note">Rashid Auditorium, GHC 4401</span>
+                <a class="abstract-link" href="plenary-abstracts.html#pavel-galashin" aria-label="Read Pavel Galashin’s abstract">Read abstract</a>
+              </td>
+              <td class="schedule-plenary">
+                <strong>Adam Wagner</strong>
+                <span class="talk-title">AlphaEvolve tutorial (ICARM)</span>
+                <span class="room-note">Rashid Auditorium, GHC 4401</span>
+              </td>
+              <td class="schedule-plenary">
+                <strong>Hailun Zheng</strong>
+                <span class="talk-title">Rigidity, stress spaces, and lower bound problems on simplicial spheres</span>
+                <span class="room-note">Rashid Auditorium, GHC 4401</span>
+                <a class="abstract-link" href="plenary-abstracts.html#hailun-zheng" aria-label="Read Hailun Zheng’s abstract">Read abstract</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row" class="time">10:30–11:00</th>
+              <td class="schedule-break">Coffee break</td>
+              <td class="schedule-break">Coffee break</td>
+              <td class="schedule-break">Coffee break</td>
+            </tr>
+            <tr>
+              <th scope="row" class="time">11:00–12:30</th>
+              <td class="schedule-session">
+                <strong>Parallel special sessions</strong>
+                <span class="room-note">Extremal · Probabilistic · Algebraic/Geometric/Topological</span>
+              </td>
+              <td class="schedule-session">
+                <strong>Parallel special sessions</strong>
+                <span class="room-note">Extremal · Probabilistic · Algebraic/Geometric/Topological</span>
+              </td>
+              <td class="schedule-plenary">
+                <strong>Petter Brändén</strong>
+                <span class="talk-title">Totally nonnegative matrices and zeros of poset polynomials</span>
+                <span class="room-note">11:00 a.m.–12:00 p.m. · Rashid Auditorium, GHC 4401</span>
+                <a class="abstract-link" href="plenary-abstracts.html#petter-branden" aria-label="Read Petter Brändén’s abstract">Read abstract</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row" class="time">12:30–2:00</th>
+              <td class="schedule-muted">Break</td>
+              <td class="schedule-muted">Break</td>
+              <td class="schedule-muted">Conference ends at noon</td>
+            </tr>
+            <tr>
+              <th scope="row" class="time">2:00–3:00</th>
+              <td class="schedule-plenary">
+                <strong>Mihyun Kang</strong>
+                <span class="talk-title">Matchings in sparse random graphs</span>
+                <span class="room-note">Rashid Auditorium, GHC 4401</span>
+                <a class="abstract-link" href="plenary-abstracts.html#mihyun-kang" aria-label="Read Mihyun Kang’s abstract">Read abstract</a>
+              </td>
+              <td class="schedule-plenary">
+                <strong>Lauren Williams</strong>
+                <span class="talk-title">Combinatorics of Macdonald polynomials and their generalizations</span>
+                <span class="room-note">Rashid Auditorium, GHC 4401</span>
+                <a class="abstract-link" href="plenary-abstracts.html#lauren-williams" aria-label="Read Lauren Williams’s abstract">Read abstract</a>
+              </td>
+              <td class="schedule-muted">—</td>
+            </tr>
+            <tr>
+              <th scope="row" class="time">3:00–3:30</th>
+              <td class="schedule-break">Coffee break</td>
+              <td class="schedule-break">Coffee break</td>
+              <td class="schedule-muted">—</td>
+            </tr>
+            <tr>
+              <th scope="row" class="time">3:30–4:30</th>
+              <td class="schedule-session"><strong>Parallel special sessions</strong>
+                <span class="room-note">Extremal · Probabilistic · Algebraic/Geometric/Topological</span></td>
+              <td class="schedule-session"><strong>Parallel special sessions</strong>
+                <span class="room-note">Extremal · Probabilistic · Algebraic/Geometric/Topological</span></td>
+              <td class="schedule-muted">—</td>
+            </tr>
+            <tr>
+              <th scope="row" class="time">4:30–5:00</th>
+              <td class="schedule-break">Coffee break</td>
+              <td class="schedule-break">Coffee break</td>
+              <td class="schedule-muted">—</td>
+            </tr>
+            <tr>
+              <th scope="row" class="time">5:00–6:00</th>
+              <td class="schedule-plenary">
+                <strong>Adam Wagner</strong>
+                <span class="talk-title">Exploring constructions in mathematics using AI tools (ICARM talk)</span>
+                <span class="room-note">Rashid Auditorium, GHC 4401</span>
+                <a class="abstract-link" href="plenary-abstracts.html#adam-wagner" aria-label="Read Adam Wagner’s plenary abstract">Read abstract</a>
+              </td>
+              <td class="schedule-plenary">
+                <strong>Rob Morris</strong>
+                <span class="talk-title">Recent results in Ramsey theory</span>
+                <span class="room-note">Rashid Auditorium, GHC 4401</span>
+                <a class="abstract-link" href="plenary-abstracts.html#rob-morris" aria-label="Read Rob Morris’s abstract">Read abstract</a>
+              </td>
+              <td class="schedule-muted">—</td>
+            </tr>
+            <tr>
+              <th scope="row" class="time">6:00–8:00</th>
+              <td class="schedule-reception">
+                <strong>Poster session and reception</strong>
+                <span class="room-note">Rangos Ballroom, Cohon University Center</span>
+              </td>
+              <td class="schedule-muted">-</td>
+              <td class="schedule-muted">—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="section-heading">Special-session schedules</h3>
+      
+      <div class="grid">
+        <details class="card session-card">
+          <summary>Extremal Combinatorics</summary>
+          <div class="details-body">
+            <p class="template-note"><strong>Room:</strong> Rashid Auditorium, GHC 4401</p>
+            <div class="table-scroll">
+              <table class="schedule-table compact">
+                <caption class="sr-only">Template for the Extremal Combinatorics special-session schedule</caption>
+                <thead><tr><th scope="col">Day</th><th scope="col">Time</th><th scope="col">Speaker</th><th scope="col">Talk title</th></tr></thead>
+                <tbody>
+                  <tr><td>Monday</td><td>11:00–11:25</td><td>To be announced</td><td>To be announced</td></tr>
+                  <tr><td>Monday</td><td>11:30–11:55</td><td>To be announced</td><td>To be announced</td></tr>
+                  <tr><td>Monday</td><td>12:00–12:25</td><td>To be announced</td><td>To be announced</td></tr>
+                  <tr><td>Monday</td><td>3:30–3:55</td><td>To be announced</td><td>To be announced</td></tr>
+                  <tr><td>Monday</td><td>4:00–4:25</td><td>To be announced</td><td>To be announced</td></tr>
+                  <tr><td>Tuesday</td><td>11:00–11:25</td><td>To be announced</td><td>To be announced</td></tr>
+                  <tr><td>Tuesday</td><td>11:30–11:55</td><td>To be announced</td><td>To be announced</td></tr>
+                  <tr><td>Tuesday</td><td>12:00–12:25</td><td>To be announced</td><td>To be announced</td></tr>
+                  <tr><td>Tuesday</td><td>3:30–3:55</td><td>To be announced</td><td>To be announced</td></tr>
+                  <tr><td>Tuesday</td><td>4:00–4:25</td><td>To be announced</td><td>To be announced</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </details>
+
+        <details class="card session-card">
+          <summary>Probabilistic Combinatorics</summary>
+          <div class="details-body">
+            <p class="template-note"><strong>Room:</strong> GHC 4405 or GHC 4307.</p>
+            <div class="table-scroll">
+              <table class="schedule-table compact">
+                <caption class="sr-only">Template for the Probabilistic Combinatorics special-session schedule</caption>
+                <thead><tr><th scope="col">Day</th><th scope="col">Time</th><th scope="col">Speaker</th><th scope="col">Talk title</th></tr></thead>
+                <tbody>
+                  <tr><td>Monday</td><td>11:00–11:25</td><td>To be announced</td><td>To be announced</td></tr>
+                  <tr><td>Monday</td><td>11:30–11:55</td><td>To be announced</td><td>To be announced</td></tr>
+                  <tr><td>Monday</td><td>12:00–12:25</td><td>To be announced</td><td>To be announced</td></tr>
+                  <tr><td>Monday</td><td>3:30–3:55</td><td>To be announced</td><td>To be announced</td></tr>
+                  <tr><td>Monday</td><td>4:00–4:25</td><td>To be announced</td><td>To be announced</td></tr>
+                  <tr><td>Tuesday</td><td>11:00–11:25</td><td>To be announced</td><td>To be announced</td></tr>
+                  <tr><td>Tuesday</td><td>11:30–11:55</td><td>To be announced</td><td>To be announced</td></tr>
+                  <tr><td>Tuesday</td><td>12:00–12:25</td><td>To be announced</td><td>To be announced</td></tr>
+                  <tr><td>Tuesday</td><td>3:30–3:55</td><td>To be announced</td><td>To be announced</td></tr>
+                  <tr><td>Tuesday</td><td>4:00–4:25</td><td>To be announced</td><td>To be announced</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </details>
+
+        <details class="card session-card">
+          <summary>Algebraic, Geometric, and Topological Combinatorics</summary>
+          <div class="details-body">
+            <p class="template-note"><strong>Room:</strong> GHC 4405 or GHC 4307.</p>
+            <div class="table-scroll">
+              <table class="schedule-table compact">
+                <caption class="sr-only">Template for the Algebraic, Geometric, and Topological Combinatorics special-session schedule</caption>
+                <thead><tr><th scope="col">Day</th><th scope="col">Time</th><th scope="col">Speaker</th><th scope="col">Talk title</th></tr></thead>
+                <tbody>
+                  <tr><td>Monday</td><td>11:00–11:25</td><td>To be announced</td><td>To be announced</td></tr>
+                  <tr><td>Monday</td><td>11:30–11:55</td><td>To be announced</td><td>To be announced</td></tr>
+                  <tr><td>Monday</td><td>12:00–12:25</td><td>To be announced</td><td>To be announced</td></tr>
+                  <tr><td>Monday</td><td>3:30–3:55</td><td>To be announced</td><td>To be announced</td></tr>
+                  <tr><td>Monday</td><td>4:00–4:25</td><td>To be announced</td><td>To be announced</td></tr>
+                  <tr><td>Tuesday</td><td>11:00–11:25</td><td>To be announced</td><td>To be announced</td></tr>
+                  <tr><td>Tuesday</td><td>11:30–11:55</td><td>To be announced</td><td>To be announced</td></tr>
+                  <tr><td>Tuesday</td><td>12:00–12:25</td><td>To be announced</td><td>To be announced</td></tr>
+                  <tr><td>Tuesday</td><td>3:30–3:55</td><td>To be announced</td><td>To be announced</td></tr>
+                  <tr><td>Tuesday</td><td>4:00–4:25</td><td>To be announced</td><td>To be announced</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="rooms">
+    <div class="wrap">
+      <h2>Conference Rooms</h2>
       <div class="grid">
         <div class="card">
-          <h3>Monday, July 20</h3>
-          <ul>
-            <li>09:30am – 6:00pm • Conference program</li>
-          </ul>
+          <h3>Rashid Auditorium</h3>
+          <p><strong>Gates Hillman Center 4401</strong></p>
+          <p>Plenary talks.</p>
         </div>
         <div class="card">
-          <h3>Tuesday, July 21</h3>
-          <ul>
-            <li>09:30am – 6:00pm • Conference program</li>
-          </ul>
+          <h3>Parallel-session room</h3>
+          <p><strong>Gates Hillman Center 4405</strong></p>
         </div>
         <div class="card">
-          <h3>Wednesday, July 22</h3>
-          <ul>
-            <li>09:30am – 12:00pm • Conference program</li>
-          </ul>
+          <h3>Parallel-session room</h3>
+          <p><strong>Gates Hillman Center 4307</strong></p>
+        </div>
+        <div class="card">
+          <h3>Poster reception</h3>
+          <p><strong>Rangos Ballroom</strong><br>Cohon University Center, second floor</p>
+          <p>Monday, July 20, 6:00–8:00 p.m.</p>
         </div>
       </div>
     </div>
@@ -441,11 +572,110 @@
   <section id="venue">
     <div class="wrap">
       <h2>Venue &amp; Travel</h2>
-      <div class="sub">
-        <p><strong>Location:</strong> Carnegie Mellon University, Pittsburgh, PA.</p>
-        <p>Detailed logistics will be announced. Pittsburgh International Airport (PIT) serves the region with ground transportation to campus.</p>
-        <p>Local recommendations will be shared here.</p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Conference location</h3>
+          <p>The conference will take place in the Gates Hillman Complex at Carnegie Mellon University.</p>
+          <address>
+            <strong>Gates Hillman Complex</strong><br>
+            4902 Forbes Avenue<br>
+            Pittsburgh, PA 15213
+          </address>
+          <p class="muted">Use this address for taxis and rideshare drop-off.</p>
+        </div>
+        <div class="card">
+          <h3>Conference hotel</h3>
+          <address>
+            <strong>Hilton Garden Inn Pittsburgh University Place</strong><br>
+            3454 Forbes Avenue<br>
+            Pittsburgh, PA 15213
+          </address>
+        </div>
       </div>
+
+      <h3 class="section-heading">From Pittsburgh International Airport: 28X Airport Flyer</h3>
+      <p class="sub">
+        Pittsburgh Regional Transit’s <strong>28X Airport Flyer</strong> runs directly from Pittsburgh International Airport to Oakland and Carnegie Mellon campus. At the airport, follow signs to ground transportation and board outside <strong>Door 9 on the Ground Level</strong>.
+      </p>
+      <p>
+        The fare is <strong>$2.75</strong>, paid when boarding. Exact cash, ConnectCard/ConnecTix, and mobile tickets are accepted. Use the PRT Ready2Ride app. Credit and debit cards are not accepted on the bus; a fare vending machine that accepts cards is near Door 8.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Hilton Garden Inn University Place</h3>
+          <p>Get off at <strong>Forbes Avenue + McKee Place</strong> (PRT stop 28), immediately beside the hotel.</p>
+        </div>
+        <div class="card">
+          <h3>Carnegie Mellon campus</h3>
+          <p>Get off at <strong>Morewood Avenue at Forbes Avenue, far side</strong> (PRT stop 22783), just after the bus turns onto Morewood Avenue.</p>
+        </div>
+      </div>
+
+      <p class="travel-note">
+        The inbound 28X is discharge-only after reaching Oakland, so it should not be used for travel from the Hilton Garden Inn to Carnegie Mellon.
+      </p>
+
+      <details class="card session-card" open>
+        <summary>Sunday, July 19: 28X timetable from the airport</summary>
+        <div class="details-body">
+          <p class="template-note">Sunday service runs approximately every 31 minutes. City arrival times are scheduled estimates and can vary with traffic.</p>
+          <div class="table-scroll">
+            <table class="schedule-table compact">
+              <caption class="sr-only">28X Airport Flyer timetable for Sunday, July 19, 2026</caption>
+              <thead>
+                <tr><th scope="col">PIT departure</th><th scope="col">Hilton / McKee Place</th><th scope="col">CMU / Morewood</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>4:44 a.m.</td><td>5:36 a.m.</td><td>5:40 a.m.</td></tr>
+                <tr><td>5:15 a.m.</td><td>6:07 a.m.</td><td>6:11 a.m.</td></tr>
+                <tr><td>5:46 a.m.</td><td>6:38 a.m.</td><td>6:42 a.m.</td></tr>
+                <tr><td>6:17 a.m.</td><td>7:09 a.m.</td><td>7:13 a.m.</td></tr>
+                <tr><td>6:48 a.m.</td><td>7:40 a.m.</td><td>7:44 a.m.</td></tr>
+                <tr><td>7:19 a.m.</td><td>8:12 a.m.</td><td>8:16 a.m.</td></tr>
+                <tr><td>7:50 a.m.</td><td>8:43 a.m.</td><td>8:47 a.m.</td></tr>
+                <tr><td>8:21 a.m.</td><td>9:14 a.m.</td><td>9:18 a.m.</td></tr>
+                <tr><td>8:52 a.m.</td><td>9:45 a.m.</td><td>9:49 a.m.</td></tr>
+                <tr><td>9:23 a.m.</td><td>10:17 a.m.</td><td>10:22 a.m.</td></tr>
+                <tr><td>9:54 a.m.</td><td>10:48 a.m.</td><td>10:53 a.m.</td></tr>
+                <tr><td>10:25 a.m.</td><td>11:19 a.m.</td><td>11:24 a.m.</td></tr>
+                <tr><td>10:56 a.m.</td><td>11:50 a.m.</td><td>11:55 a.m.</td></tr>
+                <tr><td>11:27 a.m.</td><td>12:24 p.m.</td><td>12:29 p.m.</td></tr>
+                <tr><td>11:58 a.m.</td><td>12:55 p.m.</td><td>1:00 p.m.</td></tr>
+                <tr><td>12:29 p.m.</td><td>1:26 p.m.</td><td>1:31 p.m.</td></tr>
+                <tr><td>1:00 p.m.</td><td>1:57 p.m.</td><td>2:02 p.m.</td></tr>
+                <tr><td>1:31 p.m.</td><td>2:28 p.m.</td><td>2:33 p.m.</td></tr>
+                <tr><td>2:02 p.m.</td><td>2:59 p.m.</td><td>3:04 p.m.</td></tr>
+                <tr><td>2:33 p.m.</td><td>3:30 p.m.</td><td>3:35 p.m.</td></tr>
+                <tr><td>3:04 p.m.</td><td>4:01 p.m.</td><td>4:06 p.m.</td></tr>
+                <tr><td>3:35 p.m.</td><td>4:32 p.m.</td><td>4:37 p.m.</td></tr>
+                <tr><td>4:06 p.m.</td><td>5:03 p.m.</td><td>5:08 p.m.</td></tr>
+                <tr><td>4:37 p.m.</td><td>5:34 p.m.</td><td>5:39 p.m.</td></tr>
+                <tr><td>5:08 p.m.</td><td>6:05 p.m.</td><td>6:10 p.m.</td></tr>
+                <tr><td>5:39 p.m.</td><td>6:36 p.m.</td><td>6:41 p.m.</td></tr>
+                <tr><td>6:10 p.m.</td><td>7:07 p.m.</td><td>7:12 p.m.</td></tr>
+                <tr><td>6:41 p.m.</td><td>7:38 p.m.</td><td>7:43 p.m.</td></tr>
+                <tr><td>7:12 p.m.</td><td>8:09 p.m.</td><td>8:14 p.m.</td></tr>
+                <tr><td>7:43 p.m.</td><td>8:39 p.m.</td><td>8:44 p.m.</td></tr>
+                <tr><td>8:14 p.m.</td><td>9:08 p.m.</td><td>9:12 p.m.</td></tr>
+                <tr><td>8:45 p.m.</td><td>9:39 p.m.</td><td>9:43 p.m.</td></tr>
+                <tr><td>9:16 p.m.</td><td>10:10 p.m.</td><td>10:14 p.m.</td></tr>
+                <tr><td>9:47 p.m.</td><td>10:41 p.m.</td><td>10:45 p.m.</td></tr>
+                <tr><td>10:18 p.m.</td><td>11:11 p.m.</td><td>11:15 p.m.</td></tr>
+                <tr><td>10:49 p.m.</td><td>11:42 p.m.</td><td>11:46 p.m.</td></tr>
+                <tr><td>11:20 p.m.</td><td>12:13 a.m. Monday</td><td>12:16 a.m. Monday</td></tr>
+                <tr><td>11:51 p.m.</td><td>12:41 a.m. Monday</td><td>12:44 a.m. Monday</td></tr>
+                <tr><td>12:22 a.m. Monday<sup>*</sup></td><td>1:12 a.m. Monday</td><td>1:15 a.m. Monday</td></tr>
+                <tr><td>12:53 a.m. Monday<sup>*</sup></td><td>1:43 a.m. Monday</td><td>1:46 a.m. Monday</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="small">
+            Check the official <a href="https://www.rideprt.org/pdfs/28x.pdf">28X timetable</a>, <a href="https://www.rideprt.org/schedules/Service-adjustments/">service adjustments</a>, and <a href="https://www.rideprt.org/detours/?route=28X+-+AIRPORT+FLYER">route alerts</a> shortly before travel.
+          </p>
+        </div>
+      </details>
     </div>
   </section>
 
@@ -453,12 +683,7 @@
     <div class="wrap">
       <h2>Registration</h2>
       <div class="sub">
-		  <p>Registration has been extended until June 24th.</p>
-		  <p><strong>Registration fee:</strong> &#36;40</p>
-		  <p>We can no longer accept applications for travel funding.</p>
-	  </div>
-      <div class="card">
-        <p><a class="btn" href="https://luma.com/41eig122" aria-label="Registration link">Registration link</a></p>
+        <p>Registration is now closed. We can no longer accept applications for travel funding.</p>
       </div>
     </div>
   </section>
@@ -469,31 +694,30 @@
       <div class="grid">
         <div class="card">
           <h3>Formal Power Series and Algebraic Combinatorics</h3>
-				<ul>
-            <li>July 13 - 17, 2026</li>
-				<li>Seattle, Washington</li>
-				<li><a href="https://sites.math.washington.edu/fpsac2026/">Website</a>
+          <ul>
+            <li>July 13–17, 2026</li>
+            <li>Seattle, Washington</li>
+            <li><a href="https://sites.math.washington.edu/~fpsac2026/">Website</a></li>
           </ul>
         </div>
         <div class="card">
           <h3>International Congress of Mathematicians</h3>
           <ul>
-            <li>July 23 - 30, 2026</li>
-				<li>Philadelphia, Pennsylvania</li>
-				<li><a href="https://www.icm2026.org/">Website</a></li>
+            <li>July 23–30, 2026</li>
+            <li>Philadelphia, Pennsylvania</li>
+            <li><a href="https://www.icm2026.org/">Website</a></li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  
   <section id="organizers">
     <div class="wrap">
       <h2>Organizers</h2>
-      <p>The conference is organized by Carnegie Mellon University, the University of Pittsburgh, and three external organizers. The lead organizers are:
+      <p>The conference is organized by Carnegie Mellon University, the University of Pittsburgh, and three external organizers. The lead organizers are:</p>
       <div class="grid">
-		<article class="card">
+        <article class="card">
           <h3>Tom Bohman</h3>
           <p class="muted">Carnegie Mellon University</p>
           <span class="chip"><a href="https://www.math.cmu.edu/~tbohman/">Webpage</a></span>
@@ -518,7 +742,7 @@
           <p class="muted">University of Pittsburgh</p>
           <span class="chip"><a href="https://sites.pitt.edu/~kaveh/">Webpage</a></span>
         </article>
-		<article class="card">
+        <article class="card">
           <h3>Bob Krueger</h3>
           <p class="muted">Carnegie Mellon University</p>
           <span class="chip"><a href="https://bob1123.github.io/">Webpage</a></span>
@@ -536,6 +760,6 @@
       </div>
     </div>
   </section>
-	
+
 </body>
 </html>

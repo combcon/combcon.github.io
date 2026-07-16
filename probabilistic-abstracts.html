@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Probabilistic Combinatorics Abstracts • Combinatorics at the Confluence</title>
+  <meta name="description" content="Probabilistic Combinatorics special-session abstracts for Combinatorics at the Confluence, July 20–22, 2026 at Carnegie Mellon University." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --cream: #F3E5CF;
+      --teal: #2E828B;
+      --deep-teal: #0E4B58;
+      --navy: #123A45;
+      --gold: #F2A83B;
+      --orange: #E57C2D;
+      --cmu-red: #C41230;
+      --white: #ffffff;
+      --ink: #102326;
+      --maxw: 1100px;
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      color:var(--ink);
+      background:var(--cream);
+      font-family:"Montserrat", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height:1.5;
+    }
+    a{ color:var(--cmu-red); text-decoration:none; }
+    a:hover,a:focus{ text-decoration:underline; }
+    .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 20px; }
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:999;
+      background:linear-gradient(180deg, var(--navy), var(--deep-teal));
+      color:var(--white);
+      box-shadow:0 2px 10px rgba(0,0,0,.15);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:12px 0;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:800;
+      letter-spacing:.5px;
+    }
+    .brand .mark{
+      width:28px;
+      height:28px;
+      border-radius:6px;
+      background:var(--cmu-red);
+      box-shadow:inset 0 0 0 3px rgba(255,255,255,.25);
+    }
+    .nav a{ color:var(--cream); font-weight:600; }
+    .menu{ display:flex; gap:18px; flex-wrap:wrap; }
+
+    .page-hero{
+      padding:clamp(34px, 6vw, 68px) 0;
+      color:var(--white);
+      background:linear-gradient(180deg, var(--teal), var(--navy));
+      border-bottom:6px solid var(--orange);
+    }
+    .page-hero h1{
+      margin:0 0 10px;
+      font-size:clamp(34px, 4.5vw, 56px);
+      line-height:1.05;
+      font-weight:800;
+    }
+    .page-hero p{
+      margin:0;
+      color:#e8faf8;
+      font-family:"Source Serif Pro", ui-serif, Georgia, "Times New Roman", serif;
+      font-size:20px;
+    }
+
+    main{ background:#f9f1df; }
+    section{ padding:50px 0 64px; }
+    .abstracts-wrap{ max-width:900px; }
+    .sub{
+      color:#3a646c;
+      font-family:"Source Serif Pro", ui-serif, Georgia, "Times New Roman", serif;
+      font-size:18px;
+    }
+    .card{
+      background:var(--white);
+      border:2px solid rgba(0,0,0,.06);
+      border-radius:16px;
+      padding:20px;
+      box-shadow:0 8px 18px rgba(0,0,0,.08);
+    }
+    .back-link{ display:inline-block; margin-bottom:18px; font-weight:700; }
+
+    .abstract-toc{ margin:24px 0; }
+    .abstract-toc h2{
+      margin:0 0 12px;
+      color:var(--deep-teal);
+      font-size:22px;
+    }
+    .abstract-toc ol{
+      columns:2;
+      column-gap:36px;
+      margin:0;
+      padding-left:24px;
+    }
+    .abstract-toc li{
+      break-inside:avoid;
+      margin-bottom:9px;
+    }
+
+    .abstract-list{
+      display:grid;
+      gap:20px;
+    }
+    .abstract-card{
+      scroll-margin-top:90px;
+    }
+    .abstract-card:target{
+      border-color:var(--orange);
+      box-shadow:0 0 0 3px rgba(229,124,45,.18), 0 8px 18px rgba(0,0,0,.08);
+    }
+    .abstract-card h2{
+      margin:4px 0 5px;
+      color:var(--deep-teal);
+      font-size:clamp(22px, 2.5vw, 30px);
+      line-height:1.2;
+    }
+    .abstract-card h3{
+      margin:18px 0 4px;
+      color:var(--deep-teal);
+      font-size:17px;
+    }
+    .abstract-meta{
+      margin:0;
+      color:#537a80;
+      font-size:13px;
+      font-weight:700;
+    }
+    .abstract-speaker{
+      margin:0;
+      color:var(--deep-teal);
+      font-size:18px;
+    }
+    .abstract-text{
+      font-family:"Source Serif Pro", ui-serif, Georgia, "Times New Roman", serif;
+      font-size:18px;
+      line-height:1.65;
+    }
+    .abstract-text p:last-child{ margin-bottom:0; }
+    .math{
+      white-space:nowrap;
+      font-family:"Source Serif Pro", ui-serif, Georgia, "Times New Roman", serif;
+      font-style:italic;
+    }
+    .bottom-link{ margin-top:28px; font-weight:700; }
+
+    @media (max-width:820px){
+      .nav{ align-items:flex-start; gap:12px; }
+      .brand{ flex-shrink:0; }
+      .menu{ gap:12px; }
+    }
+    @media (max-width:700px){
+      .abstract-toc ol{ columns:1; }
+    }
+    @media (max-width:620px){
+      .nav{ display:block; }
+      .menu{ margin-top:10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="wrap nav">
+      <div class="brand" aria-label="Combinatorics at the Confluence">
+        <span class="mark" aria-hidden="true"></span>
+        <span>Combinatorics at the Confluence</span>
+      </div>
+      <nav class="menu" aria-label="Primary">
+        <a href="index.html#about">About</a>
+        <a href="index.html#schedule">Program</a>
+        <a href="index.html#rooms">Rooms</a>
+        <a href="index.html#venue">Venue &amp; Travel</a>
+        <a href="index.html#registration">Registration</a>
+        <a href="index.html#organizers">Organizers</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-hero">
+    <div class="wrap">
+      <h1>Probabilistic Combinatorics Abstracts</h1>
+      <p>Combinatorics at the Confluence · July 20–22, 2026</p>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <section>
+      <div class="wrap abstracts-wrap">
+        <a class="back-link" href="index.html#schedule">← Back to the program</a>
+
+        <nav class="card abstract-toc" aria-labelledby="abstract-toc-heading">
+          <h2 id="abstract-toc-heading">Talks</h2>
+          <ol>
+            <li><a href="#jane-gao">Jane Gao — Satisfiability of random CSPs: Uniquely extendable and non-uniquely extendable</a></li>
+            <li><a href="#felix-joos">Felix Joos — Fractional clique decompositions of the binomial random graph</a></li>
+            <li><a href="#florian-pfender">Florian Pfender — Improving R(3,k) in just two bites</a></li>
+            <li><a href="#tom-kelly">Tom Kelly — How far can the Rödl nibble go?</a></li>
+            <li><a href="#jeff-kahn">Jeff Kahn — On thresholds for spanning trees</a></li>
+            <li><a href="#wes-pegden">Wes Pegden — Random volumes in d-dimensional polytopes</a></li>
+            <li><a href="#michael-molloy">Michael Molloy — Short cycles in the d-process</a></li>
+            <li><a href="#fan-chung">Fan Chung — Eigenvalues of clustering graphs</a></li>
+            <li><a href="#cosmin-pohoata">Cosmin Pohoata — Sidon sets in the squares, repeated distances, and the Elekes–Rónyai problem</a></li>
+            <li><a href="#simon-griffiths">Simon Griffiths — Permutation robust random graph thresholds</a></li>
+          </ol>
+        </nav>
+
+        <div class="abstract-list">
+          <article class="card abstract-card" id="jane-gao" aria-labelledby="jane-gao-title">
+            <p class="abstract-meta">Monday, July 20 · 11:00 a.m. · GHC 4307</p>
+            <h2 id="jane-gao-title">Satisfiability of random CSPs: Uniquely extendable and non-uniquely extendable</h2>
+            <p class="abstract-speaker"><strong>Jane Gao</strong></p>
+            <h3>Abstract</h3>
+            <div class="abstract-text">
+              <p>Determining the satisfiability threshold lies at the center of research in random constraint satisfaction problems. When adding random constraints one at a time to a set of <span class="math">n</span> variables, the system transitions from being satisfiable (SAT) to unsatisfiable (UNSAT) when the number of constraints is around some critical value <span class="math">αn</span>. Famous random CSP instances include <span class="math">k</span>-SAT, <span class="math">k</span>-XORSAT, graph and hypergraph coloring and independent-set problems, and linear equations over fields. Some of these lie in the class of uniquely extendable CSPs, such as <span class="math">k</span>-XORSAT and linear equations over fields, whereas <span class="math">k</span>-SAT, graph coloring, and independent-set problems are extendable but not uniquely extendable.</p>
+              <p>It has been observed that the satisfiability thresholds <span class="math">α*</span> of <span class="math">k</span>-XORSAT and linear equations over finite fields coincide regardless of the order of the field. Moreover, unique extendability governs the solution geometry and motivated a conjecture of Connamacher and Molloy that the SAT threshold of a random uniquely extendable CSP coincides with <span class="math">α*</span>. We explore this conjecture and give a partial confirmation. We then explore what happens for non-uniquely extendable CSPs, and in particular the SAT thresholds for equations over finite rings. Equations over rings differ from the above-mentioned CSPs in that they are not even extendable, providing a unique perspective on what governs the behavior of SAT thresholds.</p>
+              <p>This talk is based on joint work with Theodore Morrison.</p>
+            </div>
+          </article>
+
+          <article class="card abstract-card" id="felix-joos" aria-labelledby="felix-joos-title">
+            <p class="abstract-meta">Monday, July 20 · 11:30 a.m. · GHC 4307</p>
+            <h2 id="felix-joos-title">Fractional clique decompositions of the binomial random graph</h2>
+            <p class="abstract-speaker"><strong>Felix Joos</strong></p>
+            <h3>Abstract</h3>
+            <div class="abstract-text">
+              <p>Given a natural number <span class="math">r</span>, let <span class="math">p<sub>r</sub></span> be the threshold at which every edge in <span class="math">G(n,p)</span> is contained in a copy of <span class="math">K<sub>r</sub></span>. Clearly, <span class="math">p<sub>r</sub></span> is a lower bound for the threshold at which <span class="math">G(n,p)</span> admits a (fractional) <span class="math">K<sub>r</sub></span>-decomposition. We present progress on constructing fractional <span class="math">K<sub>r</sub></span>-decompositions of <span class="math">G(n,p)</span> close to <span class="math">p<sub>r</sub></span>.</p>
+              <p>This is joint work with Zak Smith.</p>
+            </div>
+          </article>
+
+          <article class="card abstract-card" id="florian-pfender" aria-labelledby="florian-pfender-title">
+            <p class="abstract-meta">Monday, July 20 · 12:00 p.m. · GHC 4307</p>
+            <h2 id="florian-pfender-title">Improving <span class="math">R(3,k)</span> in just two bites</h2>
+            <p class="abstract-speaker"><strong>Florian Pfender</strong></p>
+            <h3>Abstract</h3>
+            <div class="abstract-text">
+              <p>We present a random construction proving that the extreme off-diagonal Ramsey numbers satisfy <span class="math">R(3,k) ≥ (½ + o(1))k<sup>2</sup>/log k</span> (conjectured to be asymptotically tight), improving the previously best bound <span class="math">R(3,k) ≥ (⅓ + o(1))k<sup>2</sup>/log k</span>. In contrast to all previous constructions achieving the correct order of magnitude, we do not use a nibble argument.</p>
+              <p>Beyond the paper, we will explore a bit further how the approach can be used for other problems.</p>
+              <p>This is joint work with Zion Hefty, Paul Horn, and Dylan King.</p>
+            </div>
+          </article>
+
+          <article class="card abstract-card" id="tom-kelly" aria-labelledby="tom-kelly-title">
+            <p class="abstract-meta">Monday, July 20 · 3:30 p.m. · GHC 4307</p>
+            <h2 id="tom-kelly-title">How far can the Rödl nibble go?</h2>
+            <p class="abstract-speaker"><strong>Tom Kelly</strong></p>
+            <h3>Abstract</h3>
+            <div class="abstract-text">
+              <p>The Rödl nibble is a fundamental probabilistic approach for finding large matchings in hypergraphs. Classical results of Pippenger and Frankl–Rödl show that the nibble produces almost-perfect matchings in nearly <span class="math">D</span>-regular hypergraphs when the maximum 2-degree is much smaller than <span class="math">D</span>, and later work of Vu sharpened the quantitative dependence by incorporating higher codegrees. In this talk, I will discuss joint work with Stephen Gould that pushes this line further: we show that the nibble can essentially exhaust the full codegree sequence, up to natural bottlenecks, even when codegrees exhibit significant “clustering.” I will explain the main idea behind the improvement, some generalizations to matchings in “partite” settings, and some applications to Latin squares and designs.</p>
+            </div>
+          </article>
+
+          <article class="card abstract-card" id="jeff-kahn" aria-labelledby="jeff-kahn-title">
+            <p class="abstract-meta">Monday, July 20 · 4:00 p.m. · GHC 4307</p>
+            <h2 id="jeff-kahn-title">On thresholds for spanning trees</h2>
+            <p class="abstract-speaker"><strong>Jeff Kahn</strong></p>
+            <h3>Abstract</h3>
+            <div class="abstract-text">
+              <p>The (old) question considered here is, roughly: given <span class="math">D</span> (possibly growing) and large <span class="math">n</span>, for what <span class="math">p = p(n,D)</span> is <span class="math">G(n,p)</span> likely to contain a copy of any particular <span class="math">n</span>-vertex tree with maximum degree at most <span class="math">D</span>?</p>
+              <p>Here <span class="math">G(n,p)</span> is the usual Erdős–Rényi random graph.</p>
+              <p>The question is settled (more or less, and not easily) for fixed <span class="math">D</span>, but for growing <span class="math">D</span> less is known, though the answer is not hard to guess. We remain unable to prove this guess is correct, but report some interesting progress.</p>
+              <p>Joint work with Caleb Fong and Jinyoung Park.</p>
+            </div>
+          </article>
+
+          <article class="card abstract-card" id="wes-pegden" aria-labelledby="wes-pegden-title">
+            <p class="abstract-meta">Tuesday, July 21 · 11:00 a.m. · GHC 4307</p>
+            <h2 id="wes-pegden-title">Random volumes in <span class="math">d</span>-dimensional polytopes</h2>
+            <p class="abstract-speaker"><strong>Wes Pegden</strong></p>
+            <h3>Abstract</h3>
+            <div class="abstract-text">
+              <p>Suppose we choose <span class="math">N</span> points uniformly at random from a convex body in <span class="math">d</span> dimensions. How large must <span class="math">N</span> be, asymptotically with respect to <span class="math">d</span>, so that the convex hull of the points is nearly as large as the convex body itself? It was shown by Dyer–Füredi–McDiarmid that exponentially many samples suffice when the convex body is the hypercube, and by Pivovarov that the Euclidean ball demands roughly <span class="math">d<sup>d/2</sup></span> samples. We show that when the convex body is the simplex, exponentially many samples suffice; this then implies the same result for any convex simplicial polytope with at most exponentially many faces.</p>
+              <p>Joint work with Alan Frieze and Tomasz Tkocz.</p>
+            </div>
+          </article>
+
+          <article class="card abstract-card" id="michael-molloy" aria-labelledby="michael-molloy-title">
+            <p class="abstract-meta">Tuesday, July 21 · 11:30 a.m. · GHC 4307</p>
+            <h2 id="michael-molloy-title">Short cycles in the <span class="math">d</span>-process</h2>
+            <p class="abstract-speaker"><strong>Michael Molloy</strong></p>
+            <h3>Abstract</h3>
+            <div class="abstract-text">
+              <p>We study a classic model for forming a random graph of maximum degree <span class="math">d</span>. Begin with <span class="math">n</span> vertices and repeatedly add an edge between a uniformly chosen pair of vertices satisfying: (i) both have degree less than <span class="math">d</span>, and (ii) they are not already adjacent. Ruciński and Wormald analyzed the short-cycle distribution for the case <span class="math">d = 2</span>. We study the case of constant <span class="math">d &gt; 2</span>. We show that for any fixed <span class="math">t &gt; 2</span>, the number of <span class="math">t</span>-cycles has a Poisson distribution with constant mean. The proof combines a switching argument and a differential-equations argument.</p>
+              <p>Joint work with Lora Hreish and Lutz Warnke.</p>
+            </div>
+          </article>
+
+          <article class="card abstract-card" id="fan-chung" aria-labelledby="fan-chung-title">
+            <p class="abstract-meta">Tuesday, July 21 · 12:00 p.m. · GHC 4307</p>
+            <h2 id="fan-chung-title">Eigenvalues of clustering graphs</h2>
+            <p class="abstract-speaker"><strong>Fan Chung</strong></p>
+            <h3>Abstract</h3>
+            <div class="abstract-text">
+              <p>Many real-world networks possess the so-called small-world phenomenon, where every node is relatively close to every other node, and have a large clustering coefficient—that is, friends of friends are likely to be friends. We investigate the clustering effect in sparse clustering graphs by examining the eigenvalues, as well as quasirandom classes for strongly regular clustering graphs.</p>
+            </div>
+          </article>
+
+          <article class="card abstract-card" id="cosmin-pohoata" aria-labelledby="cosmin-pohoata-title">
+            <p class="abstract-meta">Tuesday, July 21 · 3:30 p.m. · GHC 4307</p>
+            <h2 id="cosmin-pohoata-title">Sidon sets in the squares, repeated distances, and the Elekes–Rónyai problem</h2>
+            <p class="abstract-speaker"><strong>Cosmin Pohoata</strong></p>
+            <h3>Abstract</h3>
+            <div class="abstract-text">
+              <p>We discuss a new combinatorial large-sieve method that uses algebraic splitting modulo many small primes to turn local congruence restrictions into global constraints on repeated values. This has various applications: (i) every Sidon subset of <span class="math">{1<sup>2</sup>, 2<sup>2</sup>, …, N<sup>2</sup>}</span> has size at most <span class="math">N · exp(−c log N/log log N)</span>, the first super-polylogarithmic saving for a classical problem of Alon and Erdős; (ii) a new upper bound on the largest subset of <span class="math">[N]<sup>2</sup></span> with no repeated distances, a problem of Erdős and Guy; and (iii) a new upper bound on the largest subset of <span class="math">[N]<sup>2</sup></span> with no isosceles triangle, a problem recently popularized by Charton, Ellenberg, Wagner, and Williamson.</p>
+              <p>This is based on recent joint work with Ernie Croot, Junzhe Mao, Adam Sheffer, and Kyle Yip. We will also discuss how these ideas recently led to a counterexample for the Elekes–Rónyai problem, and to a few other constructions.</p>
+            </div>
+          </article>
+
+          <article class="card abstract-card" id="simon-griffiths" aria-labelledby="simon-griffiths-title">
+            <p class="abstract-meta">Tuesday, July 21 · 4:00 p.m. · GHC 4307</p>
+            <h2 id="simon-griffiths-title">Permutation robust random graph thresholds</h2>
+            <p class="abstract-speaker"><strong>Simon Griffiths</strong></p>
+            <h3>Abstract</h3>
+            <div class="abstract-text">
+              <p>We consider the question of what structure can be guaranteed “robustly” in the intersection of two random graphs. For a graph property <span class="math">𝓕</span>, one may ask for which values of <span class="math">(p,q)</span> we have <span class="math">π(G) ∩ H ∈ 𝓕</span> for all bijective functions <span class="math">π: V(G) → V(H)</span>, where <span class="math">G ∼ G(n,p)</span> and <span class="math">H ∼ G(n,q)</span> are independent random graphs. We consider thresholds for properties such as containing an edge, containing a certain fixed subgraph, containing a giant component, and containing spanning subgraphs. Many open problems remain.</p>
+              <p>Based on joint work with Gautier Audhuy and Bruno Baldissera.</p>
+            </div>
+          </article>
+        </div>
+
+        <p class="bottom-link"><a href="index.html#schedule">← Back to the program</a></p>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>

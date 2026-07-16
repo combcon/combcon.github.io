@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Extremal Combinatorics Abstracts • Combinatorics at the Confluence</title>
+  <meta name="description" content="Extremal Combinatorics special-session abstracts for Combinatorics at the Confluence, July 20–22, 2026 at Carnegie Mellon University." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --cream: #F3E5CF;
+      --teal: #2E828B;
+      --deep-teal: #0E4B58;
+      --navy: #123A45;
+      --gold: #F2A83B;
+      --orange: #E57C2D;
+      --cmu-red: #C41230;
+      --white: #ffffff;
+      --ink: #102326;
+      --maxw: 1100px;
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      color:var(--ink);
+      background:var(--cream);
+      font-family:"Montserrat", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height:1.5;
+    }
+    a{ color:var(--cmu-red); text-decoration:none; }
+    a:hover,a:focus{ text-decoration:underline; }
+    .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 20px; }
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:999;
+      background:linear-gradient(180deg, var(--navy), var(--deep-teal));
+      color:var(--white);
+      box-shadow:0 2px 10px rgba(0,0,0,.15);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:12px 0;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:800;
+      letter-spacing:.5px;
+    }
+    .brand .mark{
+      width:28px;
+      height:28px;
+      border-radius:6px;
+      background:var(--cmu-red);
+      box-shadow:inset 0 0 0 3px rgba(255,255,255,.25);
+    }
+    .nav a{ color:var(--cream); font-weight:600; }
+    .menu{ display:flex; gap:18px; flex-wrap:wrap; }
+
+    .page-hero{
+      padding:clamp(34px, 6vw, 68px) 0;
+      color:var(--white);
+      background:linear-gradient(180deg, var(--teal), var(--navy));
+      border-bottom:6px solid var(--orange);
+    }
+    .page-hero h1{
+      margin:0 0 10px;
+      font-size:clamp(34px, 4.5vw, 56px);
+      line-height:1.05;
+      font-weight:800;
+    }
+    .page-hero p{
+      margin:0;
+      color:#e8faf8;
+      font-family:"Source Serif Pro", ui-serif, Georgia, "Times New Roman", serif;
+      font-size:20px;
+    }
+
+    main{ background:#f9f1df; }
+    section{ padding:50px 0 64px; }
+    .abstracts-wrap{ max-width:900px; }
+    .sub{
+      color:#3a646c;
+      font-family:"Source Serif Pro", ui-serif, Georgia, "Times New Roman", serif;
+      font-size:18px;
+    }
+    .card{
+      background:var(--white);
+      border:2px solid rgba(0,0,0,.06);
+      border-radius:16px;
+      padding:20px;
+      box-shadow:0 8px 18px rgba(0,0,0,.08);
+    }
+    .back-link{ display:inline-block; margin-bottom:18px; font-weight:700; }
+
+    .abstract-toc{ margin:24px 0; }
+    .abstract-toc h2{
+      margin:0 0 12px;
+      color:var(--deep-teal);
+      font-size:22px;
+    }
+    .abstract-toc ol{
+      columns:2;
+      column-gap:36px;
+      margin:0;
+      padding-left:24px;
+    }
+    .abstract-toc li{
+      break-inside:avoid;
+      margin-bottom:9px;
+    }
+
+    .abstract-list{
+      display:grid;
+      gap:20px;
+    }
+    .abstract-card{
+      scroll-margin-top:90px;
+    }
+    .abstract-card:target{
+      border-color:var(--orange);
+      box-shadow:0 0 0 3px rgba(229,124,45,.18), 0 8px 18px rgba(0,0,0,.08);
+    }
+    .abstract-card h2{
+      margin:4px 0 5px;
+      color:var(--deep-teal);
+      font-size:clamp(22px, 2.5vw, 30px);
+      line-height:1.2;
+    }
+    .abstract-card h3{
+      margin:18px 0 4px;
+      color:var(--deep-teal);
+      font-size:17px;
+    }
+    .abstract-meta{
+      margin:0;
+      color:#537a80;
+      font-size:13px;
+      font-weight:700;
+    }
+    .abstract-speaker{
+      margin:0;
+      color:var(--deep-teal);
+      font-size:18px;
+    }
+    .abstract-text{
+      font-family:"Source Serif Pro", ui-serif, Georgia, "Times New Roman", serif;
+      font-size:18px;
+      line-height:1.65;
+    }
+    .abstract-text p:last-child{ margin-bottom:0; }
+    .math{
+      white-space:nowrap;
+      font-family:"Source Serif Pro", ui-serif, Georgia, "Times New Roman", serif;
+      font-style:italic;
+    }
+    .bottom-link{ margin-top:28px; font-weight:700; }
+
+    @media (max-width:820px){
+      .nav{ align-items:flex-start; gap:12px; }
+      .brand{ flex-shrink:0; }
+      .menu{ gap:12px; }
+    }
+    @media (max-width:700px){
+      .abstract-toc ol{ columns:1; }
+    }
+    @media (max-width:620px){
+      .nav{ display:block; }
+      .menu{ margin-top:10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="wrap nav">
+      <div class="brand" aria-label="Combinatorics at the Confluence">
+        <span class="mark" aria-hidden="true"></span>
+        <span>Combinatorics at the Confluence</span>
+      </div>
+      <nav class="menu" aria-label="Primary">
+        <a href="index.html#about">About</a>
+        <a href="index.html#schedule">Program</a>
+        <a href="index.html#rooms">Rooms</a>
+        <a href="index.html#venue">Venue &amp; Travel</a>
+        <a href="index.html#registration">Registration</a>
+        <a href="index.html#organizers">Organizers</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-hero">
+    <div class="wrap">
+      <h1>Extremal Combinatorics Abstracts</h1>
+      <p>Combinatorics at the Confluence · July 20–22, 2026</p>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <section>
+      <div class="wrap abstracts-wrap">
+        <a class="back-link" href="index.html#schedule">← Back to the program</a>
+
+        <nav class="card abstract-toc" aria-labelledby="abstract-toc-heading">
+          <h2 id="abstract-toc-heading">Talks</h2>
+          <ol>
+            <li><a href="#alex-scott">Alex Scott — Some problems in coarse graph theory</a></li>
+            <li><a href="#richard-montgomery">Richard Montgomery — Nearly-uniform degree distributions in spanning subgraphs</a></li>
+            <li><a href="#anton-bernshteyn">Anton Bernshteyn — Probabilistic combinatorics and dynamical systems</a></li>
+            <li><a href="#michelle-delcourt">Michelle Delcourt — On Nash-Williams’ Conjecture</a></li>
+            <li><a href="#luke-postle">Luke Postle — A Proof of Nash-Williams’ Conjecture</a></li>
+            <li><a href="#adva-mond">Adva Mond — Maker-Breaker percolation games on a random board</a></li>
+            <li><a href="#liana-yepremyan">Liana Yepremyan — Finding a tree in the jungle</a></li>
+            <li><a href="#wojciech-samotij">Wojciech Samotij — Sparse sets in hypergraphs</a></li>
+            <li><a href="#sam-mattheus">Sam Mattheus — The limits of the inertia bound for graph powers</a></li>
+            <li><a href="#julian-sahasrabudhe">Julian Sahasrabudhe — On the Erdős–Rogers function</a></li>
+          </ol>
+        </nav>
+
+        <div class="abstract-list">
+          <article class="card abstract-card" id="alex-scott" aria-labelledby="alex-scott-title">
+            <p class="abstract-meta">Monday, July 20 · 11:00 a.m. · Rashid Auditorium, GHC 4401</p>
+            <h2 id="alex-scott-title">Some problems in coarse graph theory</h2>
+            <p class="abstract-speaker"><strong>Alex Scott</strong></p>
+            <h3>Abstract</h3>
+            <div class="abstract-text">
+              <p>Coarse graph theory is a developing area that focuses on the large-scale geometric structure of graphs, particularly through the lens of quasi-isometry. A central goal is to find coarse analogues of classical graph-theoretic results. We discuss some current progress in this direction.</p>
+              <p>Joint work with Tung Nguyen and Paul Seymour.</p>
+            </div>
+          </article>
+
+          <article class="card abstract-card" id="richard-montgomery" aria-labelledby="richard-montgomery-title">
+            <p class="abstract-meta">Monday, July 20 · 11:30 a.m. · Rashid Auditorium, GHC 4401</p>
+            <h2 id="richard-montgomery-title">Nearly-uniform degree distributions in spanning subgraphs</h2>
+            <p class="abstract-speaker"><strong>Richard Montgomery</strong></p>
+            <h3>Abstract</h3>
+            <div class="abstract-text">
+              <p>How irregular can the degree distribution of a spanning subgraph of a <span class="math">d</span>-regular <span class="math">n</span>-vertex graph be? As there are <span class="math">d + 1</span> possible vertex degrees in such a subgraph, the best we could hope for is to have around <span class="math">n/(d + 1)</span> vertices of each degree in <span class="math">{0,1,…,d}</span>. I will discuss a result showing that if <span class="math">d = o(n)</span>, then there is always a subgraph in which there are <span class="math">(1 + o(1))n/(d + 1)</span> vertices of degree <span class="math">i</span>, for each <span class="math">i ∈ {0,1,…,d}</span>. This proves a conjecture of Alon and Wei and strengthens a previous result of Fox, Luo, and Pham.</p>
+              <p>This is joint work with Alexey Pokrovskiy and Benny Sudakov.</p>
+            </div>
+          </article>
+
+          <article class="card abstract-card" id="anton-bernshteyn" aria-labelledby="anton-bernshteyn-title">
+            <p class="abstract-meta">Monday, July 20 · 12:00 p.m. · Rashid Auditorium, GHC 4401</p>
+            <h2 id="anton-bernshteyn-title">Probabilistic combinatorics and dynamical systems</h2>
+            <p class="abstract-speaker"><strong>Anton Bernshteyn</strong></p>
+            <h3>Abstract</h3>
+            <div class="abstract-text">
+              <p>In recent years, tools from combinatorics, especially the probabilistic method, have found unexpected applications in the field of dynamical systems theory. In this talk, I will discuss this research trend by focusing on one recent example, namely the construction of flows with minimal subdynamics for arbitrary countable groups.</p>
+              <p>Based on joint work with Joshua Frisch.</p>
+            </div>
+          </article>
+
+          <article class="card abstract-card" id="michelle-delcourt" aria-labelledby="michelle-delcourt-title">
+            <p class="abstract-meta">Monday, July 20 · 3:30 p.m. · Rashid Auditorium, GHC 4401</p>
+            <h2 id="michelle-delcourt-title">On Nash-Williams’ Conjecture</h2>
+            <p class="abstract-speaker"><strong>Michelle Delcourt</strong></p>
+            <h3>Abstract</h3>
+            <div class="abstract-text">
+              <p>A central open question in extremal design theory is Nash-Williams’ Conjecture from 1970, namely that every triangle-divisible graph on <span class="math">n</span> vertices (for <span class="math">n</span> large enough) with minimum degree at least <span class="math">0.75n</span> has a triangle decomposition. In this talk, we discuss the history of the problem and our recent resolution of this conjecture, as well as other applications in design theory.</p>
+              <p>This is joint work with Luke Postle.</p>
+            </div>
+          </article>
+
+          <article class="card abstract-card" id="luke-postle" aria-labelledby="luke-postle-title">
+            <p class="abstract-meta">Monday, July 20 · 4:00 p.m. · Rashid Auditorium, GHC 4401</p>
+            <h2 id="luke-postle-title">A Proof of Nash-Williams’ Conjecture</h2>
+            <p class="abstract-speaker"><strong>Luke Postle</strong></p>
+            <h3>Abstract</h3>
+            <div class="abstract-text">
+              <p>In 1970, Nash-Williams conjectured that every triangle-divisible graph on <span class="math">n</span> vertices with minimum degree at least <span class="math">3n/4</span> has a triangle decomposition, provided <span class="math">n</span> is large enough. In this talk, we overview our recent proof of this conjecture, highlighting the new techniques we developed to resolve the fractional version as well as the full conjecture.</p>
+              <p>Joint work with Michelle Delcourt.</p>
+            </div>
+          </article>
+
+          <article class="card abstract-card" id="adva-mond" aria-labelledby="adva-mond-title">
+            <p class="abstract-meta">Tuesday, July 21 · 11:00 a.m. · Rashid Auditorium, GHC 4401</p>
+            <h2 id="adva-mond-title">Maker-Breaker percolation games on a random board</h2>
+            <p class="abstract-speaker"><strong>Adva Mond</strong></p>
+            <h3>Abstract</h3>
+            <div class="abstract-text">
+              <p>Let <span class="math">G</span> be the percolated infinite square lattice with parameter <span class="math">p</span>. Maker and Breaker then play the following game by alternately claiming <span class="math">m</span> and <span class="math">b</span> edges of <span class="math">G</span>, respectively. Breaker’s goal is to isolate the origin from infinity. Maker’s goal is to indefinitely avoid Breaker’s win, meaning that she wants to defend the origin in an infinite connected component after deleting Breaker’s edges.</p>
+              <p>It is known that on the unpercolated square lattice, meaning when <span class="math">p = 1</span>, Maker wins the game. Using tools from bootstrap percolation, we prove that whenever <span class="math">p &lt; 1</span>, Breaker wins, showing that Maker’s win on the unpercolated board is rather fragile.</p>
+              <p>This is joint work with Vojtěch Dvořák and Victor Souza.</p>
+            </div>
+          </article>
+
+          <article class="card abstract-card" id="liana-yepremyan" aria-labelledby="liana-yepremyan-title">
+            <p class="abstract-meta">Tuesday, July 21 · 11:30 a.m. · Rashid Auditorium, GHC 4401</p>
+            <h2 id="liana-yepremyan-title">Finding a tree in the jungle</h2>
+            <p class="abstract-speaker"><strong>Liana Yepremyan</strong></p>
+            <h3>Abstract</h3>
+            <div class="abstract-text">
+              <p>We consider the problem of detecting and reconstructing trees planted in a sparse random graph. More specifically, given a <span class="math">k</span>-vertex tree <span class="math">T</span>, we consider the union of a random graph <span class="math">G(n,p)</span>, where <span class="math">p = c/n</span>, and a copy of <span class="math">T</span> randomly planted into the vertex set of the random graph. We study how large <span class="math">k</span> has to be so that the presence of the planted tree can be detected. We distinguish two cases: (1) the shape of the tree <span class="math">T</span> is known; and (2) <span class="math">T</span> is an unknown uniformly random tree.</p>
+              <p>When <span class="math">T</span> is known, we show that if <span class="math">k = Ω(log n)</span> and <span class="math">c &lt; 1.12</span>, then for most trees <span class="math">T</span>, the planted model can be distinguished from <span class="math">G(n,c/n)</span>. This may be surprising since, for <span class="math">c ≥ 1</span>, <span class="math">G(n,c/n)</span> contains random trees of size <span class="math">n<sup>2/3−o(1)</sup></span>. On the other hand, when <span class="math">p ≥ C/n</span> for a large constant <span class="math">C</span> and <span class="math">k = o(√n)</span>, no test can detect the presence of the planted tree for most trees. Both bounds on <span class="math">k</span> are optimal up to a constant factor. Even when the shape of the planted tree is unknown, <span class="math">k = ω(log<sup>2</sup> n)</span> is sufficient for detection when <span class="math">c ≤ 1.14</span>. We also consider the problem of reconstructing the planted unknown random tree and show that partial reconstruction is possible when <span class="math">k = ω(log<sup>2</sup> n)</span>.</p>
+              <p>Joint work with Nicolas Broutin, Nina Kamčev, Gábor Lugosi, and Bruce Reed.</p>
+            </div>
+          </article>
+
+          <article class="card abstract-card" id="wojciech-samotij" aria-labelledby="wojciech-samotij-title">
+            <p class="abstract-meta">Tuesday, July 21 · 12:00 p.m. · Rashid Auditorium, GHC 4401</p>
+            <h2 id="wojciech-samotij-title">Sparse sets in hypergraphs</h2>
+            <p class="abstract-speaker"><strong>Wojciech Samotij</strong></p>
+            <h3>Abstract</h3>
+            <div class="abstract-text">
+              <p>Suppose that <span class="math">H</span> is a uniform hypergraph with vertex set <span class="math">V</span>. The hypergraph container lemmas supply a decomposition of the family of subsets of <span class="math">V</span> that are independent in <span class="math">H</span> into a “small” number of “simple” pieces. We will present a similarly spirited decomposition lemma that employs a weaker notion of “simple” but applies to arbitrary families of subsets of <span class="math">V</span>.</p>
+              <p>This is joint work with Gady Kozma, Asaf Shapira, and Adam Zsolt Wagner.</p>
+            </div>
+          </article>
+
+          <article class="card abstract-card" id="sam-mattheus" aria-labelledby="sam-mattheus-title">
+            <p class="abstract-meta">Tuesday, July 21 · 3:30 p.m. · Rashid Auditorium, GHC 4401</p>
+            <h2 id="sam-mattheus-title">The limits of the inertia bound for graph powers</h2>
+            <p class="abstract-speaker"><strong>Sam Mattheus</strong></p>
+            <h3>Abstract</h3>
+            <div class="abstract-text">
+              <p>The inertia bound is a classical tool from spectral graph theory for upper-bounding the independence number of graphs. However, until a few years ago, we did not have a single example where the inertia bound was provably not tight. Since then, several researchers have investigated its tightness. Most notably, a recent result of Kwan and Wigderson shows that in locally sparse graphs (i.e., <span class="math">C<sub>4</sub></span>-free graphs or graphs of girth 5), the inertia bound is always linear in the number of vertices, while examples of such graphs are known—for example, from finite geometry—with much smaller independence number. Follow-up work of Tang, Zang, and Elphick showed even stronger separation results for complements of pseudorandom graphs, relying on known constructions of triangle-free pseudorandom graphs.</p>
+              <p>We investigate the tightness of the inertia bound for graph powers. The <span class="math">k</span>-th power of a graph <span class="math">G</span> in this setting is the graph <span class="math">G<sup>(k)</sup></span> on the same set of vertices, with two vertices adjacent if their distance in <span class="math">G</span> is at most <span class="math">k</span>. This class of graphs appears in several contexts, such as the theory of distance-regular graphs and coding theory. An important property is that these graphs are never locally sparse, nor are they easily seen to be complements of pseudorandom graphs, and hence they require new ideas. Using random Cayley graphs and extending results of Alon, we show that for graph powers there can also be a large gap between the inertia bound and the actual independence number.</p>
+              <p>Joint work with Aida Abiad and Nils van de Berg (TU Eindhoven).</p>
+            </div>
+          </article>
+
+          <article class="card abstract-card" id="julian-sahasrabudhe" aria-labelledby="julian-sahasrabudhe-title">
+            <p class="abstract-meta">Tuesday, July 21 · 4:00 p.m. · Rashid Auditorium, GHC 4401</p>
+            <h2 id="julian-sahasrabudhe-title">On the Erdős–Rogers function</h2>
+            <p class="abstract-speaker"><strong>Julian Sahasrabudhe</strong></p>
+            <h3>Abstract</h3>
+            <div class="abstract-text">
+              <p>In this talk, I will discuss some recent progress on a relative of the classical Ramsey problem introduced by Erdős and Rogers: What is the largest <span class="math">K<sub>s</sub></span>-free subset that can be found in every <span class="math">K<sub>s+1</sub></span>-free graph on <span class="math">n</span> vertices?</p>
+              <p>This is based on joint work with Rob Morris and Jacques Verstraete.</p>
+            </div>
+          </article>
+        </div>
+
+        <p class="bottom-link"><a href="index.html#schedule">← Back to the program</a></p>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>

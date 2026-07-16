@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Algebraic, Geometric, and Topological Combinatorics Abstracts • Combinatorics at the Confluence</title>
+  <meta name="description" content="Algebraic, Geometric, and Topological Combinatorics special-session abstracts for Combinatorics at the Confluence, July 20–22, 2026 at Carnegie Mellon University." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --cream: #F3E5CF;
+      --teal: #2E828B;
+      --deep-teal: #0E4B58;
+      --navy: #123A45;
+      --gold: #F2A83B;
+      --orange: #E57C2D;
+      --cmu-red: #C41230;
+      --white: #ffffff;
+      --ink: #102326;
+      --maxw: 1100px;
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      color:var(--ink);
+      background:var(--cream);
+      font-family:"Montserrat", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height:1.5;
+    }
+    a{ color:var(--cmu-red); text-decoration:none; }
+    a:hover,a:focus{ text-decoration:underline; }
+    .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 20px; }
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:999;
+      background:linear-gradient(180deg, var(--navy), var(--deep-teal));
+      color:var(--white);
+      box-shadow:0 2px 10px rgba(0,0,0,.15);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:12px 0;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:800;
+      letter-spacing:.5px;
+    }
+    .brand .mark{
+      width:28px;
+      height:28px;
+      border-radius:6px;
+      background:var(--cmu-red);
+      box-shadow:inset 0 0 0 3px rgba(255,255,255,.25);
+    }
+    .nav a{ color:var(--cream); font-weight:600; }
+    .menu{ display:flex; gap:18px; flex-wrap:wrap; }
+
+    .page-hero{
+      padding:clamp(34px, 6vw, 68px) 0;
+      color:var(--white);
+      background:linear-gradient(180deg, var(--teal), var(--navy));
+      border-bottom:6px solid var(--orange);
+    }
+    .page-hero h1{
+      margin:0 0 10px;
+      font-size:clamp(34px, 4.5vw, 56px);
+      line-height:1.05;
+      font-weight:800;
+    }
+    .page-hero p{
+      margin:0;
+      color:#e8faf8;
+      font-family:"Source Serif Pro", ui-serif, Georgia, "Times New Roman", serif;
+      font-size:20px;
+    }
+
+    main{ background:#f9f1df; }
+    section{ padding:50px 0 64px; }
+    .abstracts-wrap{ max-width:900px; }
+    .sub{
+      color:#3a646c;
+      font-family:"Source Serif Pro", ui-serif, Georgia, "Times New Roman", serif;
+      font-size:18px;
+    }
+    .card{
+      background:var(--white);
+      border:2px solid rgba(0,0,0,.06);
+      border-radius:16px;
+      padding:20px;
+      box-shadow:0 8px 18px rgba(0,0,0,.08);
+    }
+    .back-link{ display:inline-block; margin-bottom:18px; font-weight:700; }
+
+    .abstract-toc{ margin:24px 0; }
+    .abstract-toc h2{
+      margin:0 0 12px;
+      color:var(--deep-teal);
+      font-size:22px;
+    }
+    .abstract-toc ol{
+      columns:2;
+      column-gap:36px;
+      margin:0;
+      padding-left:24px;
+    }
+    .abstract-toc li{
+      break-inside:avoid;
+      margin-bottom:9px;
+    }
+
+    .abstract-list{
+      display:grid;
+      gap:20px;
+    }
+    .abstract-card{
+      scroll-margin-top:90px;
+    }
+    .abstract-card:target{
+      border-color:var(--orange);
+      box-shadow:0 0 0 3px rgba(229,124,45,.18), 0 8px 18px rgba(0,0,0,.08);
+    }
+    .abstract-card h2{
+      margin:4px 0 5px;
+      color:var(--deep-teal);
+      font-size:clamp(22px, 2.5vw, 30px);
+      line-height:1.2;
+    }
+    .abstract-card h3{
+      margin:18px 0 4px;
+      color:var(--deep-teal);
+      font-size:17px;
+    }
+    .abstract-meta{
+      margin:0;
+      color:#537a80;
+      font-size:13px;
+      font-weight:700;
+    }
+    .abstract-speaker{
+      margin:0;
+      color:var(--deep-teal);
+      font-size:18px;
+    }
+    .abstract-text{
+      font-family:"Source Serif Pro", ui-serif, Georgia, "Times New Roman", serif;
+      font-size:18px;
+      line-height:1.65;
+    }
+    .abstract-text p:last-child{ margin-bottom:0; }
+    .math{
+      white-space:nowrap;
+      font-family:"Source Serif Pro", ui-serif, Georgia, "Times New Roman", serif;
+      font-style:italic;
+    }
+    .bottom-link{ margin-top:28px; font-weight:700; }
+
+    @media (max-width:820px){
+      .nav{ align-items:flex-start; gap:12px; }
+      .brand{ flex-shrink:0; }
+      .menu{ gap:12px; }
+    }
+    @media (max-width:700px){
+      .abstract-toc ol{ columns:1; }
+    }
+    @media (max-width:620px){
+      .nav{ display:block; }
+      .menu{ margin-top:10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="wrap nav">
+      <div class="brand" aria-label="Combinatorics at the Confluence">
+        <span class="mark" aria-hidden="true"></span>
+        <span>Combinatorics at the Confluence</span>
+      </div>
+      <nav class="menu" aria-label="Primary">
+        <a href="index.html#about">About</a>
+        <a href="index.html#schedule">Program</a>
+        <a href="index.html#rooms">Rooms</a>
+        <a href="index.html#venue">Venue &amp; Travel</a>
+        <a href="index.html#registration">Registration</a>
+        <a href="index.html#organizers">Organizers</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-hero">
+    <div class="wrap">
+      <h1>Algebraic, Geometric, and Topological Combinatorics Abstracts</h1>
+      <p>Combinatorics at the Confluence · July 20–22, 2026</p>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <section>
+      <div class="wrap abstracts-wrap">
+        <a class="back-link" href="index.html#schedule">← Back to the program</a>
+
+        <nav class="card abstract-toc" aria-labelledby="abstract-toc-heading">
+          <h2 id="abstract-toc-heading">Talks</h2>
+          <ol>
+            <li><a href="#sarah-brauner">Sarah Brauner — q-deformations of shuffling operators</a></li>
+            <li><a href="#martha-yip">Martha Yip — Flag positroid pipe dreams</a></li>
+            <li><a href="#tyrrell-mcallister">Tyrrell McAllister — Boundaries of pseudo-integral polygons</a></li>
+            <li><a href="#hunter-spink">Hunter Spink — The quasisymmetric flag variety</a></li>
+            <li><a href="#shira-zerbib">Shira Zerbib — The chromatic number of 3-stable Kneser graphs</a></li>
+            <li><a href="#daoji-huang">Daoji Huang — Dual affine Robinson–Schensted correspondence via growth diagrams</a></li>
+            <li><a href="#patricia-hersh">Patricia Hersh — A new ribbon basis for rank-selected homology of geometric lattices and representation stability</a></li>
+            <li><a href="#gaku-liu">Gaku Liu — The Gröbner version of White’s conjecture is false</a></li>
+            <li><a href="#lorenzo-vecchi">Lorenzo Vecchi — Existence of Kähler algebras with Chow polynomials as Hilbert series</a></li>
+            <li><a href="#josephine-yu">Josephine Yu — Principal minors of positive-definite matrices</a></li>
+          </ol>
+        </nav>
+
+        <div class="abstract-list">
+          <article class="card abstract-card" id="sarah-brauner" aria-labelledby="sarah-brauner-title">
+            <p class="abstract-meta">Monday, July 20 · 11:00 a.m. · GHC 4405</p>
+            <h2 id="sarah-brauner-title"><span class="math">q</span>-deformations of shuffling operators</h2>
+            <p class="abstract-speaker"><strong>Sarah Brauner</strong></p>
+            <h3>Abstract</h3>
+            <div class="abstract-text">
+              <p>The <span class="math">k</span>-random-to-random shuffle is a Markov chain that works as follows: one removes <span class="math">k</span> cards from a deck at random and reinserts those <span class="math">k</span> cards into new, uniformly random positions. To understand the convergence behavior of this process, one would like to know its eigenvalues—a surprisingly difficult question that remained open for more than a decade. It was resolved by Dieker–Saliola (<span class="math">k = 1</span>) and Lafrenière (<span class="math">k &gt; 1</span>) in 2019, but the formulas for <span class="math">k &gt; 1</span> were abstract enough that the second-largest eigenvalue was only conjectured.</p>
+              <p>In this talk, I will describe work with Commins, Grinberg, and Saliola that gives a <span class="math">q</span>-deformation of this process to the type A Iwahori–Hecke algebra, where one may understand the parameter <span class="math">q</span> as encoding a probability. We prove that the eigenvalues are always polynomials in <span class="math">q</span> with nonnegative integer coefficients and can be expressed as certain evaluations of supersymmetric functions. This allows us to verify—and generalize—Lafrenière’s conjecture for the second-largest eigenvalue.</p>
+            </div>
+          </article>
+
+          <article class="card abstract-card" id="martha-yip" aria-labelledby="martha-yip-title">
+            <p class="abstract-meta">Monday, July 20 · 11:30 a.m. · GHC 4405</p>
+            <h2 id="martha-yip-title">Flag positroid pipe dreams</h2>
+            <p class="abstract-speaker"><strong>Martha Yip</strong></p>
+            <h3>Abstract</h3>
+            <div class="abstract-text">
+              <p>We introduce flag positroid pipe dreams (FPPs), combinatorial objects that serve a similar purpose for flag positroids as Le-diagrams do for positroids. FPPs are in bijection with intervals in the Bruhat order and hence index Richardson cells in the decomposition of the nonnegative flag variety. We give a characterization of quotients of flag positroids with consecutive ranks in terms of partial FPPs, and given a full FPP, we can recover the constituents of a full flag positroid in terms of their Le-diagrams. We also address a problem of Chen et al. on a characterization of positroid quotients in terms of the cyclic-shift operators of Benedetti, Chavez, and Tamayo.</p>
+            </div>
+          </article>
+
+          <article class="card abstract-card" id="tyrrell-mcallister" aria-labelledby="tyrrell-mcallister-title">
+            <p class="abstract-meta">Monday, July 20 · 12:00 p.m. · GHC 4405</p>
+            <h2 id="tyrrell-mcallister-title">Boundaries of pseudo-integral polygons</h2>
+            <p class="abstract-speaker"><strong>Tyrrell McAllister</strong></p>
+            <h3>Abstract</h3>
+            <div class="abstract-text">
+              <p>A polygon <span class="math">P</span> is pseudo-integral if, as in the case of integral polygons, the Ehrhart function of <span class="math">P</span> is a polynomial. Such triangles arise in algebraic geometry, where their duals determine fake weighted projective planes, and in symplectic geometry, where they reveal the “staircase” structure of the minimum radius of embeddings of certain symplectic ellipsoids.</p>
+              <p>We prove that a rational pseudo-integral triangle with exactly one lattice point in its interior has at most 9 lattice points on its boundary, as with integral triangles. We further show that such a triangle never has exactly 7 lattice points on its boundary. In addition, we construct convex pseudo-integral polygons with <span class="math">i</span> interior lattice points and <span class="math">b</span> boundary lattice points for all positive integral values of <span class="math">(i,b)</span> such that <span class="math">b ≤ 5i + 4</span>. This contrasts with integral polygons, which must satisfy <span class="math">b ≤ 2i + 7</span> by a result of Scott. Computations by Bohnert confirm that when the vertices of <span class="math">P</span> are all in <span class="math">⅓ℤ<sup>2</sup></span>, our construction attains the maximum possible number of boundary lattice points for pseudo-integral polygons with <span class="math">i ≤ 5</span> interior lattice points.</p>
+              <p>This is joint work with Jason Williford.</p>
+            </div>
+          </article>
+
+          <article class="card abstract-card" id="hunter-spink" aria-labelledby="hunter-spink-title">
+            <p class="abstract-meta">Monday, July 20 · 3:30 p.m. · GHC 4405</p>
+            <h2 id="hunter-spink-title">The quasisymmetric flag variety</h2>
+            <p class="abstract-speaker"><strong>Hunter Spink</strong></p>
+            <h3>Abstract</h3>
+            <div class="abstract-text">
+              <p>Homology classes in the complete flag variety <span class="math">GL<sub>n</sub>/B</span> correspond to linear functionals on the ring of symmetric coinvariants. In this talk, I will describe recent work with Nantel Bergeron, Lucas Gagnon, Philippe Nadeau, and Vasu Tewari on how linear maps between flag varieties corresponding to “setting variables to zero” give rise to an unusually combinatorially Schubert-positive subvariety of the flag variety—the “quasisymmetric flag variety.”</p>
+            </div>
+          </article>
+
+          <article class="card abstract-card" id="shira-zerbib" aria-labelledby="shira-zerbib-title">
+            <p class="abstract-meta">Monday, July 20 · 4:00 p.m. · GHC 4405</p>
+            <h2 id="shira-zerbib-title">The chromatic number of 3-stable Kneser graphs</h2>
+            <p class="abstract-speaker"><strong>Shira Zerbib</strong></p>
+            <h3>Abstract</h3>
+            <div class="abstract-text">
+              <p>For an integer <span class="math">s ≥ 2</span>, a subset <span class="math">S ⊆ [n]</span> is <span class="math">s</span>-stable if <span class="math">min{j − i, n + i − j} ≥ s</span> for every <span class="math">i,j ∈ S</span> with <span class="math">i &lt; j</span>. Denote the family of all <span class="math">s</span>-stable subsets of size <span class="math">k</span> of <span class="math">[n]</span> by <span class="math">C<sub>s</sub>(n,k)</span>. Schrijver proved in 1978 that whenever <span class="math">n ≥ 2k</span>, the chromatic number of the Kneser graph <span class="math">KG(C<sub>2</sub>(n,k))</span> is <span class="math">n − 2k + 2</span>.</p>
+              <p>Generalizing this result, Meunier conjectured in 2011 that for all <span class="math">n ≥ sk</span>, the corresponding chromatic number for <span class="math">s</span>-stable sets is <span class="math">n − sk + s</span>. The conjecture was proved by P. Chen for even <span class="math">s</span>, and by J. Jonsson for <span class="math">s ≥ 4</span> and sufficiently large <span class="math">n</span>. We prove the conjecture when <span class="math">s = 3</span> and <span class="math">n</span> is sufficiently large, or when <span class="math">k = s = 3</span>. To this end, we prove a version of the Hilton–Milner theorem for <span class="math">s</span>-stable sets. We also present a topological approach toward Meunier’s conjecture.</p>
+              <p>Joint work with Wei-Chia Chen and Alex Parker.</p>
+            </div>
+          </article>
+
+          <article class="card abstract-card" id="daoji-huang" aria-labelledby="daoji-huang-title">
+            <p class="abstract-meta">Tuesday, July 21 · 11:00 a.m. · GHC 4405</p>
+            <h2 id="daoji-huang-title">Dual affine Robinson–Schensted correspondence via growth diagrams</h2>
+            <p class="abstract-speaker"><strong>Daoji Huang</strong></p>
+            <h3>Abstract</h3>
+            <div class="abstract-text">
+              <p>The Robinson–Schensted (RS) correspondence admits diagrammatic interpretations via Fomin’s growth diagrams and Viennot’s shadow-line construction. Work of Spaltenstein, Springer, Steinberg, and van Leeuwen connected this combinatorial construction to the relative-position map of Springer fibers. Motivated by Kazhdan–Lusztig cell theory, various generalizations of the Robinson–Schensted correspondence to affine type A have been studied. Prominent examples include Shi’s insertion algorithm and the affine matrix-ball construction.</p>
+              <p>In this talk, we introduce a new combinatorial construction of the affine RS correspondence via growth diagrams and shadow lines that is, in a sense, dual to Shi’s insertion and the affine matrix-ball construction. We conjecture that the growth diagrams we construct admit a natural geometric realization in terms of relative positions of affine flags, similar to the interpretation given by Steinberg and van Leeuwen in the classical case.</p>
+              <p>Joint work with Sylvester Zhang.</p>
+            </div>
+          </article>
+
+          <article class="card abstract-card" id="patricia-hersh" aria-labelledby="patricia-hersh-title">
+            <p class="abstract-meta">Tuesday, July 21 · 11:30 a.m. · GHC 4405</p>
+            <h2 id="patricia-hersh-title">A new ribbon basis for rank-selected homology of geometric lattices and representation stability</h2>
+            <p class="abstract-speaker"><strong>Patricia Hersh</strong></p>
+            <h3>Abstract</h3>
+            <div class="abstract-text">
+              <p>We answer an old question of Anders Björner by providing a basis for the rank-selected homology of any geometric lattice. This basis, which we call the ribbon basis, is a matroid analogue of the polytabloid basis for a Specht module of ribbon shape. We prove that the action of Young symmetrizers on our ribbon basis satisfies a fundamental property of polytabloid bases. Using this feature of ribbon bases, we prove representation-theoretic stability for the rank-selected homology of both the Boolean lattice and the partition lattice, doing so in a way that gives sharp uniform representation-stability bounds in both cases. The sharp bound for the partition lattice proves a conjecture of Hersh and Reiner.</p>
+              <p>This is joint work with Sheila Sundaram.</p>
+            </div>
+          </article>
+
+          <article class="card abstract-card" id="gaku-liu" aria-labelledby="gaku-liu-title">
+            <p class="abstract-meta">Tuesday, July 21 · 12:00 p.m. · GHC 4405</p>
+            <h2 id="gaku-liu-title">The Gröbner version of White’s conjecture is false</h2>
+            <p class="abstract-speaker"><strong>Gaku Liu</strong></p>
+            <h3>Abstract</h3>
+            <div class="abstract-text">
+              <p>We show that the toric ideal of the Fano matroid polytope does not have a quadratic Gröbner basis. This resolves in the negative a strong version of White’s conjecture from matroid theory. This result was found independently by De Loera, Ferroni, Morales, and Rambau.</p>
+              <p>Our approach is based on a new characterization of regular unimodular flag triangulations, which reduces the problem to an instance of SMT involving Boolean and real variables. We then use an SMT solver to prove unsatisfiability. Using this approach, we also show that all 8-element matroids that do not have the Fano matroid or its dual as a minor, with the possible exception of the matroid <span class="math">T<sub>8</sub></span>, have toric ideals that admit quadratic Gröbner bases.</p>
+            </div>
+          </article>
+
+          <article class="card abstract-card" id="lorenzo-vecchi" aria-labelledby="lorenzo-vecchi-title">
+            <p class="abstract-meta">Tuesday, July 21 · 3:30 p.m. · GHC 4405</p>
+            <h2 id="lorenzo-vecchi-title">Existence of Kähler algebras with Chow polynomials as Hilbert series</h2>
+            <p class="abstract-speaker"><strong>Lorenzo Vecchi</strong></p>
+            <h3>Abstract</h3>
+            <div class="abstract-text">
+              <p>In recent years, the introduction of Chow rings of matroids has led to breakthroughs in matroid theory, including proofs of combinatorial inequalities such as the Heron–Rota–Welsh and Mason conjectures.</p>
+              <p>Chow polynomials of posets generalize the Hilbert–Poincaré polynomial of the Chow ring of matroids. While no such ring-theoretic interpretation is known for general posets, several properties surprisingly still hold for the coefficients of this polynomial, including positivity, unimodality, and palindromicity. This observation has led to the conjecture that Chow rings should also generalize to arbitrary posets and, among other requirements, satisfy the Hard Lefschetz property.</p>
+              <p>As a step toward this conjecture, we show that the Chow polynomial of any poset satisfies the numerical constraints imposed by the Hilbert series of Hard Lefschetz algebras. Consequently, for any poset there exists an algebra with the Hard Lefschetz property—and even the full Kähler package—that has the Chow polynomial as its Hilbert–Poincaré polynomial. Equivalently, this shows that the coefficients of the Chow polynomial are the <span class="math">h</span>-vector of a simple polytope.</p>
+              <p>This is joint work with Adam Schweitzer.</p>
+            </div>
+          </article>
+
+          <article class="card abstract-card" id="josephine-yu" aria-labelledby="josephine-yu-title">
+            <p class="abstract-meta">Tuesday, July 21 · 4:00 p.m. · GHC 4405</p>
+            <h2 id="josephine-yu-title">Principal minors of positive-definite matrices</h2>
+            <p class="abstract-speaker"><strong>Josephine Yu</strong></p>
+            <h3>Abstract</h3>
+            <div class="abstract-text">
+              <p>Consider principal minors of positive-definite matrices. Is there a ratio of their products that is bounded for real symmetric positive-definite matrices but unbounded for complex Hermitian positive-definite matrices? I’ll discuss an answer involving tropical geometry, Grassmannians, matroids, and submodular functions.</p>
+            </div>
+          </article>
+        </div>
+
+        <p class="bottom-link"><a href="index.html#schedule">← Back to the program</a></p>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
